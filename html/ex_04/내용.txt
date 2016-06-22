@@ -1,4 +1,0 @@
-
-1. index.php 에서 단어를 입력(ex. attitude)
-
-2. 그 단어가 dictionary.txt 파일에서 몇 번째 단어인지 출력한다.
