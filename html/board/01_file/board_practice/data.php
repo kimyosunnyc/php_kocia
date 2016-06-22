@@ -4,7 +4,7 @@
 <body>
 
 <?php
-
+	// 소스트리 연습
 	function get_number () {
 		
 		$file_name = 'data.txt';
