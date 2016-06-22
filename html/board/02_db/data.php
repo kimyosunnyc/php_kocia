@@ -14,9 +14,9 @@
 		$content = $_POST['content'];
 	}
 	
-	$hostname = 'localhost';
-	$username = 'root';
-	$password = 'rlaytjslTl';
+	$hostname = 'kocia.cytzyor3ndjk.ap-northeast-2.rds.amazonaws.com';
+	$username = 'kimyosunny';
+	$password = 'password';
 	$dbname = 'kimyosunny';
 	$conn = mysqli_connect($hostname, $username, $password, $dbname);
 	mysqli_query($conn, "SET NAMES 'utf8'");
