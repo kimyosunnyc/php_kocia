@@ -41,11 +41,12 @@ td, th {
 <h1>게시판</h1>
 
 <?php
-	$hostname = 'localhost';
-	$username = 'root';
-	$password = 'rlaytjslTl';
+	$hostname = 'kocia.cytzyor3ndjk.ap-northeast-2.rds.amazonaws.com';
+	$username = 'kimyosunny';
+	$password = 'password';
 	$dbname = 'kimyosunny';
 	$conn = mysqli_connect($hostname, $username, $password, $dbname);
+	mysqli_query($conn, "SET NAMES 'utf8'");
 	if (!$conn) {
 		die('Mysql connection failed: '.mysqli_connect_error());
 	}

@@ -1,48 +1,98 @@
 ﻿<!DOCTYPE html>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <html>
+<head>
 <style type="text/css">
+body{font-size:14px;}
+.wrap { 
+	margin:0 auto; 
+	width:50%; 
+	margin-top:50px;
+}
+table { 
+	width:100%;
+	border:0px solid #ededed; 
+	border-collapse:collapse;
+}
+th { 
+	background:#ededed;
+	width:25%;
+}
+.num { 
+	width:10%;
+}
+td, th { 
+	border:1px solid #ededed; 
+	padding:10px; 
+	text-align:center;
+}
+.w_btn { float:right; 
+	text-decoration:none; 
+	padding:5px 20px; 
+	margin-top:10px; 
+	background:#ededed; 
+	color:#000;
+}
 
-.wrap{margin:0 auto;width:50%;margin-top:50px;}
-table{width:100%;border:1px solid #ededed;border-collapse:collapse;}
-th{background:#ededed;width:20%;}
-.num{width:10%;}
-td, th{border:1px solid #ededed;padding:10px;}
-input, textarea{border:1px solid #ededed;}
-input{padding:7px;}
-.w_btn{float:right;text-decoration:none;padding:5px 20px;margin-top:10px;background:#ededed;color:#000;}
-.submit_btn{float:right;margin-top:15px; }
 </style>
+</head>
 <body>
-
-<?php
-include('data.php');
-?>
 
 <div class="wrap">
 <div style="float:right;"><a href="../../index.php">홈으로</a></div>
-
 <h1>게시글 수정</h1>
+
+<?php
+
+	if ($_SERVER['REQUEST_METHOD'] == 'GET') {
+		$number_confirm = $_GET['number'];
+	}
+	
+	$hostname = 'kocia.cytzyor3ndjk.ap-northeast-2.rds.amazonaws.com';
+	$username = 'kimyosunny';
+	$password = 'password';
+	$dbname = 'kimyosunny';
+	$conn = mysqli_connect($hostname, $username, $password, $dbname);
+	mysqli_query($conn, "SET NAMES 'utf8'");
+	if (!$conn) {
+		die('Mysql connection failed: '.mysqli_connect_error());
+	}
+	
+	$select_query = 'SELECT number, title, content, author_name, date_recent FROM board_db_01 WHERE number = '.$number_confirm;
+	$result = mysqli_query($conn, $select_query);
+	
+	if($row = mysqli_fetch_assoc($result)) {
+		
+	}
+
+	mysqli_free_result($result);
+	mysqli_close($conn);
+
+?>
 	<form name ="write_form" method = "POST" action = "data.php">
 		<table>
-			<tbody>
 			<tr>
+				<th class="num">번호</th>
 				<th>제목</th>
-				<td><input type="text" name="<?php echo $title; ?>"></td>
+				<th>작성자</th>
+				<th>최근작성일</th>
 			</tr>
 			<tr>
-				<th>글쓴이</th>
-				<td><input type="text" name="<?php echo $author_name; ?>"></td>
+				<td><?php echo $row['number']; ?></td>
+				<td><input type="text" name="title" value="<?php echo $row['title']; ?>"></td>
+				<td><?php echo $row['author_name']; ?></td>
+				<td><?php echo $row['date_recent']; ?></td>
 			</tr>
 			<tr>
-				<th>내용 </th>
-				<td><textarea name="<?php echo $content; ?>" rows="10" cols="100%"></textarea></td>
+				<th colspan="4">내용</th>
 			</tr>
-			</tbody>
+			<tr>
+				<td colspan="4"><textarea name="content" rows="10" cols="100%"><?php echo $row['content']; ?></textarea></td>
+			</tr>
 		</table>
-		<div class="submit_btn"><input type="submit" value="제출"></div>
 	</form>
-</div>
+	<div style="float:right;margin-top:5px;"><input type="submit" value="수정확인"></div>
+
 </div>
 </body>
 </html>
