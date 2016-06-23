@@ -13,7 +13,7 @@
 <?php
 
 	if ($_SERVER['REQUEST_METHOD'] == 'GET') {
-		$number_confirm = $_GET['post_id'];
+		$number_confirm = $_GET['id'];
 	}
 	
 	$hostname = 'kocia.cytzyor3ndjk.ap-northeast-2.rds.amazonaws.com';
@@ -36,13 +36,13 @@
 			);
 
 	
-	$select_query = 'SELECT post_id, title, content, author, last_update FROM post WHERE post_id = '.$number_confirm;
+	$select_query = 'SELECT id, title, content, author, last_update FROM post WHERE id = '.$number_confirm;
 	$result = mysqli_query($conn, $select_query);
 	
 	if($row = mysqli_fetch_assoc($result)) {
 		
 		echo '<tr>';
-		echo '<td>'.$row['post_id'].'</td>';
+		echo '<td>'.$row['id'].'</td>';
 		echo '<td><input type="text" name="title" value="'.$row['title'].'" readonly="readonly"></td>';
 		echo '<td><input type="text" name="title" value="'.$row['author'].'" readonly="readonly"></td>';
 		echo '<td>'.$row['last_update'].'</td></tr>';

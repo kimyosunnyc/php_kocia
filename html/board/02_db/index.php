@@ -29,14 +29,14 @@
 	echo '<th>최근작성일</th>';
 	echo '</tr>';
 
-	$select_query = 'SELECT id, title, author, last_update FROM post';
+	$select_query = 'SELECT post_id, title, author, last_update FROM post';
 	$result = mysqli_query($conn, $select_query);
 
 	
 	while($row = mysqli_fetch_assoc($result)) {
 		echo '<tr>';
-		echo '<td>'.$row['id'].'</td>';
-		echo '<td><a href="view_post.php?id='.$row['id'].'">'.$row['title'].'</a></td>';
+		echo '<td>'.$row['post_id'].'</td>';
+		echo '<td><a href="view_post.php?post_id='.$row['post_id'].'">'.$row['title'].'</a></td>';
 		echo '<td>'.$row['author'].'</td>';
 		echo '<td>'.$row['last_update'].'</td>';
 		echo '</tr>';

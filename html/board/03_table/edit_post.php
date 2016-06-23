@@ -13,7 +13,7 @@
 <?php
 
 	if ($_SERVER['REQUEST_METHOD'] == 'GET') {
-		$number_confirm = $_GET['post_id'];
+		$number_confirm = $_GET['id'];
 	}
 	
 	$hostname = 'kocia.cytzyor3ndjk.ap-northeast-2.rds.amazonaws.com';
@@ -26,7 +26,7 @@
 		die('Mysql connection failed: '.mysqli_connect_error());
 	}
 	
-	$select_query = 'SELECT post_id, title, content, author, last_update FROM post WHERE post_id = '.$number_confirm;
+	$select_query = 'SELECT id, title, content, author, last_update FROM post WHERE id = '.$number_confirm;
 	$result = mysqli_query($conn, $select_query);
 	
 	if($row = mysqli_fetch_assoc($result)) {
@@ -45,7 +45,7 @@
 			<th>최근작성일</th>
 		</tr>
 		<tr>
-			<td><?php echo $row['post_id']; ?></td>
+			<td><?php echo $row['id']; ?></td>
 			<td><input type="text" name="title" value="<?php echo $row['title']; ?>"></td>
 			<td><?php echo $row['author']; ?></td>
 			<td><?php echo $row['last_update']; ?></td>
