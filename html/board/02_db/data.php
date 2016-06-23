@@ -27,7 +27,7 @@
 		die('Mysql connection failed: '.mysqli_connect_error());
 	}
 
-	$insert_query = 'INSERT INTO board_db_01 (title, content, author) VALUES ("'.$title.'","'.$content.'","'.$author.'")';
+	$insert_query = 'INSERT INTO post (title, content, author) VALUES ("'.$title.'","'.$content.'","'.$author.'")';
 	mysqli_query($conn, $insert_query);
 
 	echo '<h1>DB INSERT 성공</h1><br>';
