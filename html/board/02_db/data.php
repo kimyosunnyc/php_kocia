@@ -10,7 +10,7 @@
 	if ($_SERVER['REQUEST_METHOD'] == 'POST') { // POST방식으로 데이터를 받는다. (write_post.php에서 작성하는 내용)
 
 		$title = $_POST['title'];
-		$author_name = $_POST['author_name'];
+		$author = $_POST['author'];
 		$content = $_POST['content'];
 	}
 	
