@@ -24,11 +24,11 @@
 		die('Mysql connection failed: '.mysqli_connect_error());
 	}
 
-	$insert_query = 'INSERT INTO board_db_01 (title, content, author_name) VALUES ("'.$title.'","'.$content.'","'.$author_name.'")';
+	$insert_query = 'INSERT INTO board_db_01 (title, content, author) VALUES ("'.$title.'","'.$content.'","'.$author.'")';
 	mysqli_query($conn, $insert_query);
 
 	echo '<h1>DB INSERT 성공</h1><br>';
-	echo 'DB INSERT: ',$title,' ',$content,' ',$author_name,'<br>';
+	echo 'DB INSERT: ',$title,' ',$content,' ',$author,'<br>';
 	mysqli_close($conn);
 	
 ?>

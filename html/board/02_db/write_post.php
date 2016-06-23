@@ -30,7 +30,7 @@ input{padding:7px;}
 			</tr>
 			<tr>
 				<th>글쓴이</th>
-				<td><input type="text" name="author_name"></td>
+				<td><input type="text" name="author"></td>
 			</tr>
 			<tr>
 				<th>내용 </th>

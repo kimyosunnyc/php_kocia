@@ -58,16 +58,16 @@ td, th {
 	echo '<th>최근작성일</th>';
 	echo '</tr>';
 
-	$select_query = 'SELECT number, title, author_name, date_recent FROM board_db_01';
+	$select_query = 'SELECT id, title, author, last_update FROM board_db_01';
 	$result = mysqli_query($conn, $select_query);
 
 	
 	while($row = mysqli_fetch_assoc($result)) {
 		echo '<tr>';
-		echo '<td>'.$row['number'].'</td>';
-		echo '<td><a href="view_post.php?number='.$row['number'].'">'.$row['title'].'</a></td>';
-		echo '<td>'.$row['author_name'].'</td>';
-		echo '<td>'.$row['date_recent'].'</td>';
+		echo '<td>'.$row['id'].'</td>';
+		echo '<td><a href="view_post.php?id='.$row['id'].'">'.$row['title'].'</a></td>';
+		echo '<td>'.$row['author'].'</td>';
+		echo '<td>'.$row['last_update'].'</td>';
 		echo '</tr>';
 	}
 	echo '</table>';

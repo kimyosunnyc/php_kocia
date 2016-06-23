@@ -26,14 +26,19 @@ td, th {
 	padding:10px; 
 	text-align:center;
 }
-.w_btn { float:right; 
-	text-decoration:none; 
-	padding:5px 20px; 
-	margin-top:10px; 
-	background:#ededed; 
-	color:#000;
-}
 
+.w_btn {
+	float:right;
+	text-decoration:
+	none;padding:5px 20px;
+	margin-top:10px;
+	background:#ededed;
+	color:#000;
+	}
+.submit_btn {
+	float:right;
+	margin-top:15px; 
+	}
 </style>
 </head>
 <body>
@@ -45,7 +50,7 @@ td, th {
 <?php
 
 	if ($_SERVER['REQUEST_METHOD'] == 'GET') {
-		$number_confirm = $_GET['number'];
+		$number_confirm = $_GET['id'];
 	}
 	
 	$hostname = 'kocia.cytzyor3ndjk.ap-northeast-2.rds.amazonaws.com';
@@ -58,7 +63,7 @@ td, th {
 		die('Mysql connection failed: '.mysqli_connect_error());
 	}
 	
-	$select_query = 'SELECT number, title, content, author_name, date_recent FROM board_db_01 WHERE number = '.$number_confirm;
+	$select_query = 'SELECT id, title, content, author, last_update FROM board_db_01 WHERE id = '.$number_confirm;
 	$result = mysqli_query($conn, $select_query);
 	
 	if($row = mysqli_fetch_assoc($result)) {
@@ -78,10 +83,10 @@ td, th {
 				<th>최근작성일</th>
 			</tr>
 			<tr>
-				<td><?php echo $row['number']; ?></td>
+				<td><?php echo $row['id']; ?></td>
 				<td><input type="text" name="title" value="<?php echo $row['title']; ?>"></td>
-				<td><?php echo $row['author_name']; ?></td>
-				<td><?php echo $row['date_recent']; ?></td>
+				<td><?php echo $row['author']; ?></td>
+				<td><?php echo $row['last_update']; ?></td>
 			</tr>
 			<tr>
 				<th colspan="4">내용</th>

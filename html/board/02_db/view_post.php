@@ -33,10 +33,7 @@ td, th {
 	background:#ededed; 
 	color:#000;
 }
-input{
-width:90%;
-border:none;
-}
+
 
 </style>
 </head>
@@ -49,7 +46,7 @@ border:none;
 <?php
 
 	if ($_SERVER['REQUEST_METHOD'] == 'GET') {
-		$number_confirm = $_GET['number'];
+		$number_confirm = $_GET['id'];
 	}
 	
 	$hostname = 'kocia.cytzyor3ndjk.ap-northeast-2.rds.amazonaws.com';
@@ -72,16 +69,16 @@ border:none;
 			);
 
 	
-	$select_query = 'SELECT number, title, content, author_name, date_recent FROM board_db_01 WHERE number = '.$number_confirm;
+	$select_query = 'SELECT id, title, content, author, last_update FROM board_db_01 WHERE id = '.$number_confirm;
 	$result = mysqli_query($conn, $select_query);
 	
 	if($row = mysqli_fetch_assoc($result)) {
 		
 		echo '<tr>';
-		echo '<td>'.$row['number'].'</td>';
+		echo '<td>'.$row['id'].'</td>';
 		echo '<td><input type="text" name="title" value="'.$row['title'].'" readonly="readonly"></td>';
-		echo '<td><input type="text" name="title" value="'.$row['author_name'].'" readonly="readonly"></td>';
-		echo '<td>'.$row['date_recent'].'</td></tr>';
+		echo '<td><input type="text" name="title" value="'.$row['author'].'" readonly="readonly"></td>';
+		echo '<td>'.$row['last_update'].'</td></tr>';
 		echo '<tr><th colspan="4">내용</th></tr>';
 		echo '<tr><td colspan="4"><textarea name="content" rows="10" cols="100%" readonly="readonly">'.$row['content'].'</textarea></td></tr>';
 	}
@@ -92,10 +89,12 @@ border:none;
 ?>
 
 <div style="float:right;">
+	<form name ="write_form" method = "POST" action = "edit_post.php">
 	<ul style="display:inline;padding:0;margin:0;">
-		<li style="list-style:none;float:left;margin-right:5px;"><a class="w_btn" href="edit_post.php" target="_self">수정하기</a></li>
+		<li style="list-style:none;float:left;margin-right:5px;"><input type="submit" value="수정하기"></li>
 		<li style="list-style:none;float:left;"><a class="w_btn" href="index.php" target="_self">목록으로</a></li>
 	</ul>
+	</form>
 </div>
 
 
