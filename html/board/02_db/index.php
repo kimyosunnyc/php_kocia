@@ -58,7 +58,7 @@ td, th {
 	echo '<th>최근작성일</th>';
 	echo '</tr>';
 
-	$select_query = 'SELECT id, title, author, last_update FROM board_db_01';
+	$select_query = 'SELECT id, title, author, last_update FROM post';
 	$result = mysqli_query($conn, $select_query);
 
 	

@@ -69,7 +69,7 @@ td, th {
 			);
 
 	
-	$select_query = 'SELECT id, title, content, author, last_update FROM board_db_01 WHERE id = '.$number_confirm;
+	$select_query = 'SELECT id, title, content, author, last_update FROM post WHERE id = '.$number_confirm;
 	$result = mysqli_query($conn, $select_query);
 	
 	if($row = mysqli_fetch_assoc($result)) {
