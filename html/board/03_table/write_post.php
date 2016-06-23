@@ -27,6 +27,10 @@
 				<th>내용 </th>
 				<td><textarea name="content" rows="10" cols="100%"></textarea></td>
 			</tr>
+			<tr>
+				<th>비고 </th>
+				<td><textarea name="note" rows="5" cols="100%"></textarea></td>
+			</tr>
 			</tbody>
 		</table>
 		<div style="float:right;margin-top:10px;"><input type="submit" value="제출"></div>

@@ -13,7 +13,7 @@
 <?php
 
 	if ($_SERVER['REQUEST_METHOD'] == 'GET') {
-		$number_confirm = $_GET['id'];
+		$number_confirm = $_GET['post_id'];
 	}
 	
 	$hostname = 'kocia.cytzyor3ndjk.ap-northeast-2.rds.amazonaws.com';
@@ -30,24 +30,26 @@
 				<tr>
 					<th class="num">번호</th>
 					<th>제목</th>
+					<th>비고</th>
 					<th>작성자</th>
 					<th>최근작성일</th>
 				</tr>'
 			);
 
 	
-	$select_query = 'SELECT id, title, content, author, last_update FROM post WHERE id = '.$number_confirm;
+	$select_query = 'SELECT post_id, title, content, note, author, last_update FROM post WHERE post_id = '.$number_confirm;
 	$result = mysqli_query($conn, $select_query);
 	
 	if($row = mysqli_fetch_assoc($result)) {
 		
 		echo '<tr>';
-		echo '<td>'.$row['id'].'</td>';
+		echo '<td>'.$row['post_id'].'</td>';
 		echo '<td><input type="text" name="title" value="'.$row['title'].'" readonly="readonly"></td>';
-		echo '<td><input type="text" name="title" value="'.$row['author'].'" readonly="readonly"></td>';
+		echo '<td><input type="text" name="author" value="'.$row['author'].'" readonly="readonly"></td>';
 		echo '<td>'.$row['last_update'].'</td></tr>';
 		echo '<tr><th colspan="4">내용</th></tr>';
 		echo '<tr><td colspan="4"><textarea name="content" rows="10" cols="100%" readonly="readonly">'.$row['content'].'</textarea></td></tr>';
+		echo '<tr><th>비고</th><td colspan="3"><textarea name="note" rows="10" cols="100%" readonly="readonly">'.$row['note'].'</textarea></td></tr>';
 	}
 	echo '</table>';
 	echo '<div style="float:right;margin-top:10px;"><a href="index.php" target="_self"><input type="submit" value="목록보기"></a></div>';

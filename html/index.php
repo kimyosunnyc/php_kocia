@@ -20,6 +20,7 @@
 			<ul>
 				<li><a href="board/01_file/index.php" target="_self">01_file</a></li>
 				<li><a href="board/02_db/index.php" target="_self">02_db</a></li>
+				<li><a href="board/03_table/index.php" target="_self">03_table</a></li>
 			</ul>
 		</td>
 		<td>&nbsp; </td>
