@@ -6,7 +6,7 @@ body{font-size:14px;}
 	width:100%; 
 	margin-top:50px;
 }
-.board_tb{width:45%;margin:0;padding:10px;}
+.board_tb{width:45%;margin:0;padding:10px;display:inline;float:left;}
 .board_btn{float:right;}
 .board_btn ul{display:inline;padding:0;margin:10px 0;}
 .board_btn ul li{list-style:none;float:left;}
@@ -17,7 +17,6 @@ table {
 }
 th { 
 	background:#ededed;
-	width:25%;
 }
 .num { 
 	width:10%;
