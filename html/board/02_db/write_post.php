@@ -1,18 +1,9 @@
 ﻿<!DOCTYPE html>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <html>
-<style type="text/css">
-
-.wrap{margin:0 auto;width:50%;margin-top:50px;}
-table{width:100%;border:1px solid #ededed;border-collapse:collapse;}
-th{background:#ededed;width:20%;}
-.num{width:10%;}
-td, th{border:1px solid #ededed;padding:10px;}
-input, textarea{border:1px solid #ededed;}
-input{padding:7px;}
-.w_btn{float:right;text-decoration:none;padding:5px 20px;margin-top:10px;background:#ededed;color:#000;}
-.submit_btn{float:right;margin-top:15px; }
-</style>
+<head>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
 <body>
 
 

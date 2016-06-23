@@ -2,40 +2,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <html>
 <head>
-<style type="text/css">
-body{font-size:14px;}
-.wrap { 
-	margin:0 auto; 
-	width:50%; 
-	margin-top:50px;
-}
-table { 
-	width:100%;
-	border:0px solid #ededed; 
-	border-collapse:collapse;
-}
-th { 
-	background:#ededed;
-	width:25%;
-}
-.num { 
-	width:10%;
-}
-td, th { 
-	border:1px solid #ededed; 
-	padding:10px; 
-	text-align:center;
-}
-.w_btn { float:right; 
-	text-decoration:none; 
-	padding:5px 20px; 
-	margin-top:10px; 
-	background:#ededed; 
-	color:#000;
-}
-
-
-</style>
+	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
 
@@ -88,16 +55,14 @@ td, th {
 
 ?>
 
-<div style="float:right;">
-	<form name ="write_form" method = "POST" action = "edit_post.php">
-	<ul style="display:inline;padding:0;margin:0;">
-		<li style="list-style:none;float:left;margin-right:5px;"><input type="submit" value="수정하기"></li>
-		<li style="list-style:none;float:left;"><a class="w_btn" href="index.php" target="_self">목록으로</a></li>
-	</ul>
-	</form>
-</div>
-
-
+	<div style="float:right;">
+		<form name ="write_form" method = "POST" action = "edit_post.php">
+		<ul style="display:inline;padding:0;margin:10px 0;">
+			<li style="list-style:none;float:left;margin-right:5px;"><input type="submit" value="수정하기"></li>
+			<li style="list-style:none;float:left;"><a class="w_btn" href="index.php" target="_self"><input type="submit" value="목록보기"></a></li>
+		</ul>
+		</form>
+	</div>
 </div>
 </body>
 </html>

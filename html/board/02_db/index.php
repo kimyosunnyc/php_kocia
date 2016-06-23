@@ -1,44 +1,15 @@
 <!DOCTYPE html>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <html>
-
-<style type="text/css">
-.wrap { 
-	margin:0 auto; 
-	width:50%; 
-	margin-top:50px;
-}
-table { 
-	width:100%;
-	border:0px solid #ededed; 
-	border-collapse:collapse;
-}
-th { 
-	background:#ededed;
-	width:25%;
-}
-.num { 
-	width:10%;
-}
-td, th { 
-	border:1px solid #ededed; 
-	padding:10px; 
-	text-align:center;
-}
-.w_btn { float:right; 
-	text-decoration:none; 
-	padding:5px 20px; 
-	margin-top:10px; 
-	background:#ededed; 
-	color:#000;
-}
-</style>
+<head>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
 
 <body>
 
 <div class="wrap">
 <div style="float:right;"><a href="../../index.php">홈으로</a></div>
-<h1>게시판</h1>
+<h1>자유게시판</h1>
 
 <?php
 	$hostname = 'kocia.cytzyor3ndjk.ap-northeast-2.rds.amazonaws.com';
@@ -75,9 +46,16 @@ td, th {
 	mysqli_close($conn);
 
 ?>
-
-<a class="w_btn" href="write_post.php" target="_self">글쓰기</a>
+<div style="float:right;">
+	<form name ="write_form" method = "POST" action = "write_post.php">
+	<ul style="display:inline;padding:0;margin:10px 0;">
+		<li style="list-style:none;float:left;"><a class="w_btn" href="write_post.php" target="_self"><input type="submit" value="글쓰기"></a></li>
+	</ul>
+	</form>
+</div>
 
 </div>
+
+
 </body>
 </html>

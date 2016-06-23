@@ -1,6 +1,9 @@
 ﻿﻿<!DOCTYPE html>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <html>
+<head>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
 <body>
  
 <?php
@@ -32,8 +35,9 @@
 	mysqli_close($conn);
 	
 ?>
-<a class="w_btn" href="index.php" target="_self">목록으로</a>
- 
+<form name ="write_form">
+	<a class="w_btn" href="index.php" target="_self"><input type="submit" value="목록보기"></a>
+ </form>
  
 </body>
 </html>
