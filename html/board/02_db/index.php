@@ -49,7 +49,7 @@
 <div style="float:right;">
 	<form name ="write_form" method = "POST" action = "write_post.php">
 	<ul style="display:inline;padding:0;margin:10px 0;">
-		<li style="list-style:none;float:left;"><a class="w_btn" href="write_post.php" target="_self"><input type="submit" value="글쓰기"></a></li>
+		<li style="list-style:none;float:left;"><a href="write_post.php" target="_self"><input type="submit" value="글쓰기"></a></li>
 	</ul>
 	</form>
 </div>

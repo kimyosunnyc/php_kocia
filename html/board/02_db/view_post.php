@@ -59,7 +59,7 @@
 		<form name ="write_form" method = "POST" action = "edit_post.php">
 		<ul style="display:inline;padding:0;margin:10px 0;">
 			<li style="list-style:none;float:left;margin-right:5px;"><input type="submit" value="수정하기"></li>
-			<li style="list-style:none;float:left;"><a class="w_btn" href="index.php" target="_self"><input type="submit" value="목록보기"></a></li>
+			<li style="list-style:none;float:left;"><a href="index.php" target="_self"><input type="submit" value="목록보기"></a></li>
 		</ul>
 		</form>
 	</div>

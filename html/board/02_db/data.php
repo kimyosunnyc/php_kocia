@@ -36,7 +36,7 @@
 	
 ?>
 <form name ="write_form">
-	<a class="w_btn" href="index.php" target="_self"><input type="submit" value="목록보기"></a>
+	<a href="index.php" target="_self"><input type="submit" value="목록보기"></a>
  </form>
  
 </body>

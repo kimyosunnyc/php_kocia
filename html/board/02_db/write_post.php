@@ -29,7 +29,7 @@
 			</tr>
 			</tbody>
 		</table>
-		<div class="submit_btn"><input type="submit" value="제출"></div>
+		<div><input type="submit" value="제출"></div>
 	</form>
 </div>
 </div>
