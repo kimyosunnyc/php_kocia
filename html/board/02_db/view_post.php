@@ -50,7 +50,7 @@
 		echo '<tr><td colspan="4"><textarea name="content" rows="10" cols="100%" readonly="readonly">'.$row['content'].'</textarea></td></tr>';
 	}
 	echo '</table>';
-	echo '<a href="index.php" target="_self"><input type="submit" value="목록보기"></a>';
+	echo '<div style="float:right;margin-top:10px;"><a href="index.php" target="_self"><input type="submit" value="목록보기"></a></div>';
 	mysqli_free_result($result);
 	mysqli_close($conn);
 

@@ -29,7 +29,7 @@
 			</tr>
 			</tbody>
 		</table>
-		<div><input type="submit" value="제출"></div>
+		<div style="float:right;margin-top:10px;"><input type="submit" value="제출"></div>
 	</form>
 </div>
 </div>
