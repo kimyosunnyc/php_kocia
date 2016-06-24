@@ -2,7 +2,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <html>
 <head>
-	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" type="text/css" href="/kimyost/style.css">
 </head>
 <body>
  
@@ -38,6 +38,7 @@
 <form name ="write_form">
 	<a href="index.php" target="_self"><input type="submit" value="목록보기"></a>
  </form>
+<a href="index.php" target="_self">목록보기</a>
  
 </body>
 </html>

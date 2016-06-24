@@ -2,7 +2,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <html>
 <head>
-	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" type="text/css" href="/kimyost/style.css">
 </head>
 <body>
 
@@ -16,15 +16,7 @@
 		$number_confirm = $_GET['post_id'];
 	}
 	
-	$hostname = 'kocia.cytzyor3ndjk.ap-northeast-2.rds.amazonaws.com';
-	$username = 'kimyosunny';
-	$password = 'password';
-	$dbname = 'kimyosunny';
-	$conn = mysqli_connect($hostname, $username, $password, $dbname);
-	mysqli_query($conn, "SET NAMES 'utf8'");
-	if (!$conn) {
-		die('Mysql connection failed: '.mysqli_connect_error());
-	}
+	require_once '../../../mylib.php';
 	
 	$select_query = 'SELECT post_id, title, content, note, author, last_update FROM post WHERE post_id = '.$number_confirm;
 	$result = mysqli_query($conn, $select_query);
