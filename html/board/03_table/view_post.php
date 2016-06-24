@@ -46,7 +46,7 @@
 		echo '<tr><td colspan="4"><textarea name="note" rows="10" cols="100%" readonly="readonly">'.$row['note'].'</textarea></td></tr>';
 	}
 	echo '</table>';
-	echo '<div style="float:right;margin-top:10px;"><a href="index.php" target="_self"><input type="submit" value="목록보기"></a></div>';
+	echo '<div style="float:right;margin-top:10px;"><a href="edit_post.php"><input type="button" value="수정하기"></a> <a href="index.php"><input type="button" value="목록보기"></a></div>';
 	mysqli_free_result($result);
 	mysqli_close($conn);
 

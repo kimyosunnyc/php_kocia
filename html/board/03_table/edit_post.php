@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <html>
 <head>
@@ -16,7 +16,10 @@
 		$number_confirm = $_GET['post_id'];
 	}
 	
-	require_once '../../../mylib.php';
+	require_once '../../../includes/mylib.php';
+	$conn = db_connect();
+
+	$board_edit = 'update board_id set title='$title', content='$content' where post_id = $post_id'; 
 	
 	$select_query = 'SELECT post_id, title, content, note, author, last_update FROM post WHERE post_id = '.$number_confirm;
 	$result = mysqli_query($conn, $select_query);

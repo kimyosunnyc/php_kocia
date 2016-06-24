@@ -26,7 +26,7 @@
 			echo '<th>최근작성일</th>';
 			echo '</tr>';
 			
-			$select_query = 'SELECT post_id, title, note, author, last_update FROM post WHERE board_id = 0';
+			$select_query = 'SELECT post_id, title, note, author, last_update FROM post WHERE board_id = 0 Order By post_id DESC';
 			$result = mysqli_query($conn, $select_query);
 
 			while($row = mysqli_fetch_assoc($result)) {
@@ -42,15 +42,12 @@
 			echo '</table>';
 			mysqli_free_result($result);
 			mysqli_close($conn);
-
+			
+			printf ("<div class='board_btn'>");
+			printf ("<a href='write_post.php?board_id=0'><input type='button' value='글쓰기'></a>");
+			printf ("</div>");
 		?>
-		<div class="board_btn">
-			<form name ="write_form1" method = "POST" action = "write_post_v1.php">
-			<ul>
-				<li><input type="submit" value="글쓰기"></li>
-			</ul>
-			</form>
-		</div>
+		
 	</div>
 	
 	<div class="board_tb">
@@ -58,7 +55,6 @@
 		<h1>게시판 B</h1>
 
 		<?php
-			require_once '../../../includes/mylib.php';
 			$conn = db_connect();
 			
 			echo '<table>';
@@ -72,7 +68,7 @@
 			echo '<th>최근작성일</th>';
 			echo '</tr>';
 
-			$select_query = 'SELECT post_id, title, note, author, last_update FROM post WHERE board_id = 1';
+			$select_query = 'SELECT post_id, title, note, author, last_update FROM post WHERE board_id = 1 Order By post_id DESC';
 			$result = mysqli_query($conn, $select_query);
 
 			while($row = mysqli_fetch_assoc($result)) {
@@ -88,15 +84,11 @@
 			echo '</table>';
 			mysqli_free_result($result);
 			mysqli_close($conn);
-
+			
+			printf ("<div class='board_btn'>");
+			printf ("<a href='write_post.php?board_id=1'><input type='button' value='글쓰기'></a>");
+			printf ("</div>");
 		?>
-		<div class="board_btn">
-			<form name ="write_form1" method = "POST" action = "write_post_v2.php">
-			<ul>
-				<li><input type="submit" value="글쓰기"></li>
-			</ul>
-			</form>
-		</div>
 	</div>
 </div>
 
