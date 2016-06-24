@@ -14,6 +14,7 @@
 
 	if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 		$number_confirm = $_GET['post_id'];
+		$board_id = $_GET['board_id'];
 	}
 	
 	require_once '../../../includes/mylib.php';

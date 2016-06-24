@@ -37,7 +37,7 @@
 				printf ("<input type='hidden' name='board_id' value='%s'>",$board_id);
 				if ($board_id == 1) {
 					printf ("<tr>");
-					printf ("<th>비고 </th>");
+					printf ("<th>비고</th>");
 					printf ("<td><textarea name='note' rows='10'></textarea></td>");
 					printf ("</tr>");
 				}

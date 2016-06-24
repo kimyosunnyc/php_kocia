@@ -6,7 +6,6 @@
 </head>
 
 <body>
-
 <div class="wrap_tb">
 	<div class="board_tb">
 		<h1>게시판 A</h1>
@@ -14,7 +13,7 @@
 		<?php
 			require_once '../../../includes/mylib.php';
 			$conn = db_connect();
-			
+
 			echo '<table>';
 			echo '<tbody>';
 			echo '<colgroup><col width="7%"><col width="45%"><col width="20%"><col width="28%"></colgroup>';
@@ -32,7 +31,7 @@
 			while($row = mysqli_fetch_assoc($result)) {
 				echo '<tr>';
 				echo '<td>'.$row['post_id'].'</td>';
-				echo '<td><a href="view_post.php?post_id='.$row['post_id'].'">'.$row['title'].'</a></td>';
+				printf ("<td><a href='view_post.php?post_id=$row[post_id]&board_id=0'>$row[title]</a></td>");
 				echo '<td style="display:none;">'.$row['note'].'</td>';
 				echo '<td>'.$row['author'].'</td>';
 				echo '<td>'.$row['last_update'].'</td>';
@@ -56,7 +55,7 @@
 
 		<?php
 			$conn = db_connect();
-			
+		
 			echo '<table>';
 			echo '<tbody>';
 			echo '<colgroup><col width="7%"><col width="25%"><col width="25%"><col width="15%"><col width="28%"></colgroup>';
@@ -74,7 +73,7 @@
 			while($row = mysqli_fetch_assoc($result)) {
 				echo '<tr>';
 				echo '<td>'.$row['post_id'].'</td>';
-				echo '<td><a href="view_post.php?post_id='.$row['post_id'].'">'.$row['title'].'</a></td>';
+				printf ("<td><a href='view_post.php?post_id=$row[post_id]&board_id=1'>$row[title]</a></td>");
 				echo '<td>'.$row['note'].'</td>';
 				echo '<td>'.$row['author'].'</td>';
 				echo '<td>'.$row['last_update'].'</td>';

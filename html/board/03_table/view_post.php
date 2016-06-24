@@ -14,6 +14,7 @@
 
 	if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 		$number_confirm = $_GET['post_id'];
+		$board_id = $_GET['board_id'];
 	}
 	
 	require_once '../../../includes/mylib.php';
@@ -42,8 +43,14 @@
 		echo '<td>'.$row['last_update'].'</td></tr>';
 		echo '<tr><th colspan="4">내용</th></tr>';
 		echo '<tr><td colspan="4"><textarea name="content" rows="10" cols="100%" readonly="readonly">'.$row['content'].'</textarea></td></tr>';
-		echo '<tr><th colspan="4">비고</th></tr>';
-		echo '<tr><td colspan="4"><textarea name="note" rows="10" cols="100%" readonly="readonly">'.$row['note'].'</textarea></td></tr>';
+
+		printf ("<input type='hidden' name='board_id' value='%s'>",$board_id);
+		if ($board_id == 1) {
+			printf ("<tr>");
+			printf ("<th colspan='4'>비고</th>");
+			printf ("<tr><td colspan='4'><textarea name='note' rows='10' readonly='readonly'>'".$row['note']."'</textarea></td></tr>");
+			printf ("</tr>");
+		}
 	}
 	echo '</table>';
 	echo '<div style="float:right;margin-top:10px;"><a href="edit_post.php"><input type="button" value="수정하기"></a> <a href="index.php"><input type="button" value="목록보기"></a></div>';
