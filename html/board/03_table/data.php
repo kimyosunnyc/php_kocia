@@ -24,7 +24,7 @@
 		
 	}
 	echo $board_id;
-	$insert_query = 'INSERT INTO post (title, content, author, note, board_id) VALUES ("'.$title.'","'.$content.'","'.$author.'","'.$note.'","'.$board_id.'")';
+	$insert_query = sprintf ("INSERT INTO post (title, content, author, note, board_id) VALUES ('%s', '%s', '%s', '%s', %d);", $title, $content, $author, $note, $board_id);
 
 	mysqli_query($conn, $insert_query);
 

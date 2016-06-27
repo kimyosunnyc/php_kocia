@@ -31,7 +31,7 @@
 			);
 
 	
-	$select_query = 'SELECT post_id, title, content, note, author, last_update FROM post WHERE post_id = '.$number_confirm;
+	$select_query = sprintf ("SELECT post_id, title, content, note, author, last_update FROM post WHERE post_id = '%d';", $number_confirm);
 	$result = mysqli_query($conn, $select_query);
 	
 	if($row = mysqli_fetch_assoc($result)) {
