@@ -18,7 +18,7 @@
 	}
 ?>
 <h1>게시판 글쓰기</h1>
-	<form name ="write_form1" method = "POST" action = "data.php">
+	<form name ="write_form1" method = "POST" action = "insert.php">
 		<table class="board_write">
 			<tbody>
 			<tr>

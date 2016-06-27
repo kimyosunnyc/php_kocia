@@ -21,9 +21,17 @@
 				<li><a href="board/01_file/index.php" target="_self">01_file</a></li>
 				<li><a href="board/02_db/index.php" target="_self">02_db</a></li>
 				<li><a href="board/03_table/index.php" target="_self">03_table</a></li>
+				<li><a href="board/04_edit/index.php" target="_self">04_edit</a></li>
 			</ul>
 		</td>
-		<td>&nbsp; </td>
+		<td>
+			<ul>
+				<li>&nbsp;</li>
+				<li>&nbsp;</li>
+				<li>03_table : 게시글 write / list / view page (DB연결) </li>
+				<li>04_edit : 게시글 edit / delet (DB연결) - <span style="color:#f00;">아직 못함 </span></li>
+			</ul>
+		</td>
 	</tr>
 	<tr>
 		<td> Dictionary</td>
@@ -31,7 +39,11 @@
 			<ul>
 				<li><a href="dictionary/01_file/index.php" target="_self">01_file</a></li>
 			</ul>
-		<td><span style="color:#f00;">중복된 코드 함수로 묶어서 활용하기는 아직 못함 - </span> <a href="exercise/board/01_file/index.php" target="_self">link</a></td>
+		<td>
+			<ul>
+				<li>01_file : 중복된 코드 함수로 묶어서 활용하기 - <span style="color:#f00;">아직 못함 </span> <a href="exercise/board/01_file/index.php" target="_self">link</a></li>
+			</ul>
+		</td>
 	</tr>
 	<tr>
 		<td> Security</td>
@@ -53,9 +65,15 @@
 		<td>
 			<ul>
 				<li><a href="exercise/list.php" target="_self">list</a></li>
+				<li><a href="exercise/board/02_grade/index.php" target="_self">02_grade</a></li>
 			</ul>
 		</td>
-		<td>&nbsp; </td>
+		<td>
+			<ul>
+				<li>&nbsp;</li>
+				<li>02_성적/학생 Form </li>
+			</ul>
+		</td>
 	</tr>
 </table>
 </div>
