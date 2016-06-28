@@ -28,7 +28,7 @@
 			</tr>
 		</tbody>
 	</table>
-	<div style="float:right;margin-top:10px;"><input type="submit" value="제출"></div>
+	<div style="float:right;margin-top:10px;"><input type="submit" value="제출"> <a href="index.php"><input type="button" value="목록보기" style="padding:5px;"></a></div>
 	</form>
 
 </div>
