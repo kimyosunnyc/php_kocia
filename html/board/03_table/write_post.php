@@ -34,12 +34,12 @@
 				<td><textarea name="content" rows="10" cols="100%"></textarea></td>
 			</tr>
 			<?php
-				printf ("<input type='hidden' name='board_id' value='%s'>",$board_id);
+				printf ("<input type='hidden' name='board_id' value='%s'>", $board_id);
 				if ($board_id == 1) {
-					printf ("<tr>");
-					printf ("<th>비고</th>");
-					printf ("<td><textarea name='note' rows='10'></textarea></td>");
-					printf ("</tr>");
+					echo '<tr>';
+					echo '<th>비고</th>';
+					echo '<td><textarea name="note" rows="10"></textarea></td>';
+					echo '</tr>';
 				}
 			?>
 			</tbody>

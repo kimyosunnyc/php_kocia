@@ -43,21 +43,21 @@
 		$correct_time = convert_time_string($row['last_update']);
 		echo '<td>'.$correct_time.'</td></tr>';
 		echo '<tr><th colspan="4">내용</th></tr>';
-		echo '<tr><td colspan="4"><textarea name="content" rows="10" cols="100%" readonly="readonly">'.$row['content'].'</textarea></td></tr>';
+		echo '<tr><td colspan="4"><textarea name="content" rows="10" cols="100%" readonly> '.$row['content'].'</textarea></td></tr>';
 
-		printf ("<input type='hidden' name='board_id' value='%s'>",$board_id);
+		printf ("<input type='hidden' name='board_id' value='%s'>", $board_id);
 		if ($board_id == 1) {
-			printf ("<tr>");
-			printf ("<th colspan='4'>비고</th>");
-			printf ("<tr><td colspan='4'><textarea name='note' rows='10' readonly='readonly'>'".$row['note']."'</textarea></td></tr>");
-			printf ("</tr>");
+			echo '<tr>';
+			echo '<th colspan="4">비고</th>';
+			echo '<tr><td colspan="4"><textarea name="note" rows="10" readonly>'.$row['note'].'</textarea></td></tr>';
+			echo '</tr>';
 		}
 	}
 	echo '</table>';
 	if ($board_id == 1) {
-		printf ("<div style='float:right;margin-top:10px;'><a href='edit_post.php?post_id=$row[post_id]&board_id=1'><input type='button' value='수정하기'></a> <a href='index.php'><input type='button' value='목록보기'></a></div>");
+		echo '<div style="float:right;margin-top:10px;"><a href="edit_post.php?post_id='.$row[post_id].'&board_id=1"><input type="button" value="수정하기"></a> <a href="index.php"><input type="button" value="목록보기"></a></div>';
 	} else {
-		printf ("<div style='float:right;margin-top:10px;'><a href='edit_post.php?post_id=$row[post_id]&board_id=0'><input type='button' value='수정하기'></a> <a href='index.php'><input type='button' value='목록보기'></a></div>");		
+		echo '<div style="float:right;margin-top:10px;"><a href="edit_post.php?post_id='.$row[post_id].'&board_id=0"><input type="button" value="수정하기"></a> <a href="index.php"><input type="button" value="목록보기"></a></div>';		
 	}
 	mysqli_free_result($result);
 	mysqli_close($conn);

@@ -20,15 +20,14 @@
 	require_once '../../../includes/mylib.php';
 	$conn = db_connect();
 
-	printf ('<table>
-				<tr>
-					<th class="num">번호</th>
-					<th>제목</th>
+	echo '<table>
+			<tr>
+				<th class="num">번호</th>
+				<th>제목</th>
 
-					<th>작성자</th>
-					<th>최근작성일</th>
-				</tr>'
-			);
+				<th>작성자</th>
+				<th>최근작성일</th>
+			</tr>';
 
 	
 	$select_query = sprintf ("SELECT post_id, title, content, note, author, last_update FROM post WHERE post_id = %d;", $number_confirm);
@@ -47,10 +46,10 @@
 
 		printf ("<input type='hidden' name='board_id' value='%s'>",$board_id);
 		if ($board_id == 1) {
-			printf ("<tr>");
-			printf ("<th colspan='4'>비고</th>");
-			printf ("<tr><td colspan='4'><textarea name='note' rows='10'>'".$row['note']."'</textarea></td></tr>");
-			printf ("</tr>");
+			echo '<tr>';
+			echo '<th colspan="4">비고</th>';
+			echo '<tr><td colspan="4"><textarea name="note" rows="10">'.$row['note'].'</textarea></td></tr>';
+			echo '</tr>';
 		}
 	}
 	echo '</table>';

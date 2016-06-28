@@ -31,7 +31,7 @@
 			while($row = mysqli_fetch_assoc($result)) {
 				echo '<tr>';
 				echo '<td>'.$row['post_id'].'</td>';
-				printf ("<td><a href='view_post.php?post_id=$row[post_id]&board_id=0'>$row[title]</a></td>");
+				echo '<td><a href="view_post.php?post_id='.$row['post_id'].'&board_id=0">'.$row['title'].'</a></td>';
 				echo '<td style="display:none;">'.$row['note'].'</td>';
 				echo '<td>'.$row['author'].'</td>';
 				$correct_time = convert_time_string($row['last_update']);
@@ -43,9 +43,9 @@
 			mysqli_free_result($result);
 			mysqli_close($conn);
 			
-			printf ("<div class='board_btn'>");
-			printf ("<a href='write_post.php?board_id=0'><input type='button' value='글쓰기'></a>");
-			printf ("</div>");
+			echo '<div class="board_btn">';
+			echo '<a href="write_post.php?board_id=0"><input type="button" value="글쓰기"></a>';
+			echo '</div>';
 		?>
 		
 	</div>
@@ -74,7 +74,7 @@
 			while($row = mysqli_fetch_assoc($result)) {
 				echo '<tr>';
 				echo '<td>'.$row['post_id'].'</td>';
-				printf ("<td><a href='view_post.php?post_id=$row[post_id]&board_id=1'>$row[title]</a></td>");
+				echo '<td><a href="view_post.php?post_id='.$row['post_id'].'&board_id=1">'.$row['title'].'</a></td>';
 				echo '<td>'.$row['note'].'</td>';
 				echo '<td>'.$row['author'].'</td>';
 				$correct_time = convert_time_string($row['last_update']);
@@ -86,9 +86,9 @@
 			mysqli_free_result($result);
 			mysqli_close($conn);
 			
-			printf ("<div class='board_btn'>");
-			printf ("<a href='write_post.php?board_id=1'><input type='button' value='글쓰기'></a>");
-			printf ("</div>");
+			echo '<div class="board_btn">';
+			echo '<a href="write_post.php?board_id=1"><input type="button" value="글쓰기"></a>';
+			echo '</div>';
 		?>
 	</div>
 </div>
