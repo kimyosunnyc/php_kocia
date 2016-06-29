@@ -19,7 +19,7 @@ input[type='text']{
 	width:96%;
 	border:1px solid #ededed;
 	}
-input[type='submit']{
+input[type='submit'], input[type='button']{
 	padding:5px 20px;	
 }
 textarea {

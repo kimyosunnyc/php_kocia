@@ -24,6 +24,20 @@
 		mysqli_close($conn);
 	}
 	
+	function edit_post ($title, $content, $note, $post_id, $board_id) {
+		
+		$conn = db_connect();
+		$post_id = $_POST['post_id'];
+		$board_id = $_POST['board_id'];
+		$query = sprintf("UPDATE post SET title='%s', content='%s', note='%s' WHERE post_id = %d AND board_id = %d;", $title, $content, $note, $post_id, $board_id);
+		$result = mysqli_query($conn, $query);
+		if ($result == false) {
+			echo mysqli_error($conn);
+		}
+		mysqli_close($conn);
+		return $result;
+	}
+	
 	function delete_post ($post_id) {
 		
 		$conn = db_connect();
