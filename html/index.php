@@ -22,6 +22,7 @@
 				<li><a href="board/02_db/index.php" target="_self">02_db</a></li>
 				<li><a href="board/03_table/index.php" target="_self">03_table</a></li>
 				<li><a href="board/04_edit/index.php" target="_self">04_edit</a></li>
+				<li><a href="board/05_class/index.php" target="_self">05_class</a></li>
 			</ul>
 		</td>
 		<td>

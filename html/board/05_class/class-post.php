@@ -28,10 +28,10 @@
 		
 		$conn = db_connect();
 		$post_id = $_GET['post_id'];
-		$query = sprintf("delete from bbs where post_id = %s;",$post_id);
+		$query = sprintf("DELETE FROM post WHERE post_id = %s;", $post_id);
 		$result = mysqli_query($conn, $query);
-		mysqli_free_result($result);
 		mysqli_close($conn);
+		return $result;
 	}
 	
 	class Post {

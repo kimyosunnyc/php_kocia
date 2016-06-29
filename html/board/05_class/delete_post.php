@@ -10,16 +10,17 @@
 
 	require_once 'class-post.php';
 	$conn = db_connect();
-	if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-
-		$post_id = $_POST['post_id'];		
-	}
-	delete_post ($post_id);
 	
-	if($result==true) {
-		echo "<meta http-equiv='refresh' content='0; url=index.php'>";
+	if ($_SERVER['REQUEST_METHOD'] == 'GET') {
+
+		$post_id = $_GET['post_id'];		
 	}
-	else {
+	$result = delete_post ($post_id);
+	
+	if ($result == true) {
+		echo '<meta http-equiv="refresh" content="0; url=index.php">';
+		
+	} else {
 		echo "삭제 실패 하였습니다.";
 	}
 	 
