@@ -8,7 +8,7 @@
  
 <?php
 
-	require_once 'class-post.php';
+	require_once 'class_post.php';
 	$conn = db_connect();
 	
 	if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -16,17 +16,21 @@
 		$post_id = $_POST['post_id'];	
 		$title = $_POST['title'];
 		$content = $_POST['content'];
-		$note = $_POST['note'];
 		$board_id = $_POST['board_id'];
+		$note = null;
+		if ($board_id == 1) {
+			$note = $_POST['note'];
+		}
+		
 	}
 
 	$result = edit_post ($title, $content, $note, $post_id, $board_id);
 	
 	if ($result == true) {
 		if ($board_id == 1) {
-			echo '<meta http-equiv="Refresh" content="1; URL=view_post.php?post_id='.$post_id.'&board_id=1">';
+			echo '<meta http-equiv="Refresh" content="0; URL=view_post.php?post_id='.$post_id.'&board_id=1">';
 		} else {
-			echo '<meta http-equiv="Refresh" content="1; URL=view_post.php?post_id='.$post_id.'&board_id=0">';
+			echo '<meta http-equiv="Refresh" content="0; URL=view_post.php?post_id='.$post_id.'&board_id=0">';
 		}
 		
 	} else {

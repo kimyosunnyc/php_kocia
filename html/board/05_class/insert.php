@@ -8,7 +8,7 @@
  
 <?php
 
-	require_once 'class-post.php';
+	require_once 'class_post.php';
 	$conn = db_connect();
 	
 	if ($_SERVER['REQUEST_METHOD'] == 'POST') { // POST방식으로 데이터를 받는다. (write_post.php에서 작성하는 내용)

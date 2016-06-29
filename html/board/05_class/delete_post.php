@@ -8,7 +8,7 @@
  
 <?php
 
-	require_once 'class-post.php';
+	require_once 'class_post.php';
 	$conn = db_connect();
 	
 	if ($_SERVER['REQUEST_METHOD'] == 'GET') {

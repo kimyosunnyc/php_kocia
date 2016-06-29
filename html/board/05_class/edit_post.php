@@ -17,7 +17,7 @@
 		$board_id = $_GET['board_id'];
 	}
 	
-	require_once 'class-post.php';
+	require_once 'class_post.php';
 	$conn = db_connect();
 
 	printf ('<form name ="write_form1" method = "POST" action = "update.php">
