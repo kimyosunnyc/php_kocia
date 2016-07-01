@@ -23,6 +23,7 @@
 				<li><a href="board/03_table/index.php" target="_self">03_table : DB테이블 만들어 게시글 연결</a></li>
 				<li><a href="board/04_edit/index.php" target="_self">04_edit : 게시글 수정</a></li>
 				<li><a href="board/05_class/index.php" target="_self">05_class : class로 기능 묶기</a></li>
+				<li><a href="board/06_login/index.php" target="_self">06_로그인</a> </li>
 			</ul>
 		</td>
 		<td>
@@ -31,6 +32,7 @@
 				<li>&nbsp;</li>
 				<li>03_table : 게시글 write / list / view page (DB연결) </li>
 				<li>04_edit : 게시글 edit / delet (DB연결) - <span style="color:#f00;">아직 못함 </span></li>
+				<li>&nbsp;</li>
 				<li>&nbsp;</li>
 			</ul>
 		</td>
@@ -51,9 +53,9 @@
 		<td> Security</td>
 		<td>
 			<ul>
-				<li><a href="security/security_01_session/index.php" target="_self">01_로그인폼</a></li>
-				<li><a href="security/security_02_hashing/index.php" target="_self">02_로그인 및 회원가입 : 파일에 저장</a> </li>
-				<li><a href="security/security_03_db/index.php" target="_self">03_로그인 : DB에 저장</a> </li>
+				<li><a href="security/security_01_session/index.php" target="_self">file01_로그인폼</a></li>
+				<li><a href="security/security_02_hashing/index.php" target="_self">file02_로그인 및 회원가입 : 파일에 저장</a> </li>
+				<li><a href="security/security_03_db/index.php" target="_self">file03_로그인 : DB에 저장</a> </li>
 			</ul>
 		</td>
 		<td>
