@@ -17,9 +17,13 @@
 			<col width="15%">
 		</colgroup>
 		<tr>
+			<td>이름</td>
+			<td><input type="text" name="user_real_name"></td>
+			<td rowspan="3"><input type="submit" value="가입하기"></td>
+		</tr>
+		<tr>
 			<td>ID</td>
 			<td><input type="text" name="id"></td>
-			<td rowspan="2"><input type="submit" value="가입하기"></td>
 		</tr>
 		<tr>
 			<td>Password</td>

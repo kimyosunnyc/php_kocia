@@ -7,7 +7,7 @@
 <body>
 
 <div class="wrap">
-<div style="float:right;"><a href="../../index.php">홈으로</a></div>
+
 
 <?php
 	require_once 'class_login.php';
@@ -16,14 +16,17 @@
 	start_session ();
 	if (check_login()) {
 ?>
-	<h1>현재 로그인 된 상태입니다.</h1>
-	<form action="logout.php" method="get">
-		<input type="submit" value="로그아웃">
-	</form>
+	<div style="margin:80px;text-align:center;padding:30px;border:1px solid #ededed;">
+		<h1>현재 로그인 된 상태입니다.</h1>
+		<form action="logout.php" method="get">
+			<input type="submit" value="로그아웃">
+		</form>
+	</div>
 
 <?php
 	} else {
 ?>
+	<div style="float:right;"><a href="../../index.php">홈으로</a></div>
 	<h1>로그인하십시오.</h1>
 	
 	<table>

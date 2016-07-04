@@ -6,6 +6,8 @@
 </head>
 <body>
  
+ <div class="wrap">
+ <div style="float:right;"><a href="../../index.php">홈으로</a></div>
 <?php
 
 	require_once 'class_post.php';
@@ -27,6 +29,6 @@
 
 ?>
 
-
+</div>
 </body>
 </html>

@@ -50,9 +50,8 @@ function try_to_login($id, $password) {
 
 function check_user_account($id, $password) {
 
-
 	$conn = db_connect();
-	$stmt = mysqli_prepare($conn, "SELECT hash FROM user_account WHERE id = ?");
+	$stmt = mysqli_prepare($conn, "SELECT hash FROM kimyosunny.user_account WHERE id = ?");
 	mysqli_stmt_bind_param($stmt, "s", $id);
 	mysqli_stmt_execute($stmt);
 	$result = mysqli_stmt_get_result($stmt);
@@ -64,9 +63,8 @@ function check_user_account($id, $password) {
 		
 		echo $password."<br>". $hash."<br>";
 		echo intval(password_verify($password, $hash));
-		die("");
-		
-		//return password_verify($password, $hash);
+	
+		return password_verify($password, $hash);
 	}
 	mysqli_free_result($result);
 	mysqli_close($conn);	

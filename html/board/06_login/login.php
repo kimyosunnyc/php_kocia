@@ -12,23 +12,21 @@
 
 
 <?php
-require_once 'class_login.php';
-//$conn = db_connect();
+
 require_once 'session.php';
 start_session();
 
 if (isset($_POST['id'], $_POST['password'])) {
-    $id = $_POST['id'];
-    $password = $_POST['password']; 
- 
-	//$account = get_user_account ($id, $password);
-	//print_r ($account);
+	$id = $_POST['id'];
+	$password = $_POST['password']; 
+
     if (try_to_login($id, $password) == true) { 
-		echo 'ok'; 
-        //header('Location: protected_page.php'); // 리다이렉팅
+		//echo 'ok'; 
+		header('Location: protected_page.php'); // 리다이렉팅
     } else {
+		//echo 'no'; 
 		// 이멜주소 또는 비번이 등록되지 않았거나 틀림
-        //header('Location: error.php?error_code=1');
+		header('Location: error.php?error_code=1');
     }
 } else {
     echo '로그인 폼 에러';
