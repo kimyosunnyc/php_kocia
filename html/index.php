@@ -73,10 +73,12 @@
 				<li><a href="javascript/ex_01.php" target="_self">연습1</a></li>
 				<li><a href="javascript/ex_02.php" target="_self">연습2</a></li>
 				<li><a href="javascript/ex_03.php" target="_self">연습3</a></li>
+				<li><a href="javascript/160714_ex_01.php" target="_self">연습4</a></li>
 			</ul>
 		</td>
 		<td>
 			<ul>
+				<li>&nbsp;</li>
 				<li>&nbsp;</li>
 				<li>&nbsp;</li>
 				<li>&nbsp;</li>
