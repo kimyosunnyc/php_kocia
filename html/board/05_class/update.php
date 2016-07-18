@@ -16,6 +16,7 @@
 		$post_id = $_POST['post_id'];	
 		$title = $_POST['title'];
 		$content = $_POST['content'];
+		$author = $_POST['author'];
 		$board_id = $_POST['board_id'];
 		$note = null;
 		if ($board_id == 1) {
@@ -24,7 +25,7 @@
 		
 	}
 
-	$result = edit_post ($title, $content, $note, $post_id, $board_id);
+	$result = edit_post ($title, $content, $author, $note, $board_id, $post_id);
 	
 	if ($result == true) {
 		if ($board_id == 1) {

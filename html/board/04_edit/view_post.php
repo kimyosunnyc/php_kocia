@@ -56,8 +56,10 @@
 	echo '</table>';
 	if ($board_id == 1) {
 		echo '<div style="float:right;margin-top:10px;"><a href="edit_post.php?post_id='.$row['post_id'].'&board_id=1"><input type="button" value="수정하기"></a> <a href="index.php"><input type="button" value="목록보기"></a></div>';
+		echo '<form action="delete.php" method="POST"><input type="hidden" name="post_id" value="'.$row['post_id'].'"><input type="submit" value="삭제하기"></form>';
 	} else {
 		echo '<div style="float:right;margin-top:10px;"><a href="edit_post.php?post_id='.$row['post_id'].'&board_id=0"><input type="button" value="수정하기"></a> <a href="index.php"><input type="button" value="목록보기"></a></div>';		
+		echo '<form action="delete.php" method="POST"><input type="hidden" name="post_id" value="'.$row['post_id'].'"><input type="submit" value="삭제하기"></form>';
 	}
 	mysqli_free_result($result);
 	mysqli_close($conn);

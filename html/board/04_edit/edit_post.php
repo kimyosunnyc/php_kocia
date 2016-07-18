@@ -20,6 +20,7 @@
 	require_once '../../../includes/mylib.php';
 	$conn = db_connect();
 
+	echo '<form name="edit_post" action="update.php" method="POST">';
 	echo '<table>
 			<tr>
 				<th class="num">번호</th>
@@ -36,9 +37,9 @@
 	if($row = mysqli_fetch_assoc($result)) {
 		
 		echo '<tr>';
-		echo '<td>'.$row['post_id'].'</td>';
+		echo '<td><input type="text" name="post_id" value="'.$row['post_id'].'" readonly></td>';
 		echo '<td><input type="text" name="title" value="'.$row['title'].'"></td>';
-		echo '<td><input type="text" name="author" value="'.$row['author'].'" readonly="readonly"></td>';
+		echo '<td><input type="text" name="author" value="'.$row['author'].'" readonly></td>';
 		$correct_time = convert_time_string($row['last_update']);
 		echo '<td>'.$correct_time.'</td></tr>';
 		echo '<tr><th colspan="4">내용</th></tr>';
@@ -54,7 +55,8 @@
 	}
 	echo '</table>';
 	echo '<div style="float:left;margin-top:10px;"><a href="index.php"><input type="button" value="목록보기"></a></div>';
-	echo '<div style="float:right;margin-top:10px;"><a href="update.php"><input type="button" value="글수정"></a> <a href="view_post.php"><input type="button" value="글삭제"></a></div>';
+	echo '<div style="float:right;margin-top:10px;"><input type="submit" value="글수정"></div>';
+	echo '</form>';
 	mysqli_free_result($result);
 	mysqli_close($conn);
 

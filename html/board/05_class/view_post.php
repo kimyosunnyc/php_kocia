@@ -48,7 +48,8 @@
 	}
 
 	echo '</table>';
-	echo '<div style="float:right;margin-top:10px;"><a href="edit_post.php?post_id='.$post->getId().'&board_id=1"><input type="button" value="수정하기"></a> <a href="delete_post.php?post_id='.$post->getId().'"><input type="button" value="삭제하기"></a> <a href="index.php"><input type="button" value="목록보기"></a></div>';
+	echo '<div style="float:right;margin-top:10px;"><a href="edit_post.php?post_id='.$post->getId().'&board_id=1"><input type="button" value="수정하기"></a> <a href="index.php"><input type="button" value="목록보기"></a></div>';
+	echo '<form action="delete_post.php" method="POST"><input type="hidden" name="post_id" value="'.$post->getId().'"><input type="submit" value="삭제하기"></form>';
 
 	
 	/* 댓글 시작 */
