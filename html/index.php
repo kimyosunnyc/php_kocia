@@ -31,9 +31,9 @@
 				<li>&nbsp;</li>
 				<li>&nbsp;</li>
 				<li>03_table : 게시글 write / list / view page (DB연결) </li>
-				<li>04_edit : 게시글 edit / delet (DB연결) - <span style="color:#f00;">아직 못함 </span></li>
 				<li>&nbsp;</li>
-				<li>&nbsp;</li>
+				<li>게시글 수정, 삭제 / 댓글 수정, 삭제까지 함</li>
+				<li>로그인 유저랑 연결시켜야 함 - <span style="color:#f00;">아직 못함 </span></li>
 			</ul>
 		</td>
 	</tr>

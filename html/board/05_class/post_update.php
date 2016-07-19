@@ -8,7 +8,7 @@
  
 <?php
 
-	require_once 'class_post.php';
+	require_once 'class.php';
 	$conn = db_connect();
 	
 	if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -29,9 +29,9 @@
 	
 	if ($result == true) {
 		if ($board_id == 1) {
-			echo '<meta http-equiv="Refresh" content="0; URL=view_post.php?post_id='.$post_id.'&board_id=1">';
+			echo '<meta http-equiv="Refresh" content="0; URL=post_view.php?post_id='.$post_id.'&board_id=1">';
 		} else {
-			echo '<meta http-equiv="Refresh" content="0; URL=view_post.php?post_id='.$post_id.'&board_id=0">';
+			echo '<meta http-equiv="Refresh" content="0; URL=post_view.php?post_id='.$post_id.'&board_id=0">';
 		}
 		
 	} else {

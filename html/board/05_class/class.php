@@ -99,7 +99,7 @@
 		$query = sprintf("SELECT comment_id, comment, visitor, post_id FROM comment WHERE comment_id = %d", $comment_id);
 		$result = mysqli_query($conn, $query);
 		$row = mysqli_fetch_assoc($result);
-		$comment = new Comment($row['commnet_id'], $row['comment'], $row['visitor'], $row['post_id']);
+		$comment = new Comment($row['comment_id'], $row['comment'], $row['visitor'], $row['post_id']);
 		mysqli_free_result($result);
 		
 		mysqli_close($conn);
@@ -107,9 +107,9 @@
 	}
 	
 	// 한 게시물에 달린 모든 comment 의 반환
-	function get_comment_in_post($post_id) {
+	function get_comments_in_post($post_id) {
 		$conn = db_connect();
-		$query = sprintf("SELECT comment_id, comment, visitor, post_id FROM comment WHERE post_id = %d", $post_id);
+		$query = sprintf("SELECT comment_id, comment, visitor, post_id FROM kimyosunny.comment WHERE post_id = %d", $post_id);
 		$result = mysqli_query($conn, $query);
 		$comments = array();
 		while($row = mysqli_fetch_assoc($result)) {
@@ -126,6 +126,34 @@
 		$query = sprintf("INSERT INTO comment (comment, visitor, post_id) VALUES ('%s', '%s', %d);", $comment, $visitor, $post_id);
 		mysqli_query($conn, $query);
 		mysqli_close($conn);
+	}
+	
+	function edit_comment ($comment_id, $comment, $visitor) {
+		
+		$conn = db_connect();
+		$comment_id = $_POST['comment_id'];
+		$query = sprintf("UPDATE kimyosunny.comment SET comment = '%s', visitor = '%s' WHERE comment_id = %d", $comment, $visitor, $comment_id);
+		$result = mysqli_query($conn, $query);
+		if ($result == false) {
+			echo mysqli_error($conn);
+		}
+		mysqli_close($conn);
+		return $result;
+	}
+	
+	function delete_comment ($comment_id) {
+		
+		$conn = db_connect();
+		$comment_id = $_POST['comment_id'];
+		$query = sprintf("DELETE FROM kimyosunny.comment WHERE comment_id = %d;", $comment_id);
+		$result = mysqli_query($conn, $query);
+		
+		if ($result === false) {
+			echo mysqli_error($conn);
+			die();
+		}
+		mysqli_close($conn);
+		return $result;
 	}
 	
 	class Comment {
