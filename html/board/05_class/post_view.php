@@ -61,7 +61,7 @@
 
 	</table>
 	<div style="float:right;margin-top:10px;">
-		<a href="post_edit.php?post_id=<?php echo $post->getId(); ?>&board_id=1"><input type="button" value="수정하기"></a>
+		<a href="post_edit.php?post_id=<?php echo $post->getId(); ?>&board_id=<?php echo $post->getBoardId(); ?>"><input type="button" value="수정하기"></a>
 	</div> 
 	<form action="post_delete.php" method="POST" style="margin-top:10px;">
 		<a href="index.php"><input type="button" value="목록보기"></a> 
