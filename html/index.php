@@ -91,12 +91,16 @@
 			<ul>
 				<li><a href="exercise/list.php" target="_self">01_list</a></li>
 				<li><a href="exercise/board/02_grade/index.php" target="_self">02_grade</a></li>
+				<li><a href="exercise/jquery/160720/lecture_6_51_jquery_autocomplete_ajax.php" target="_self">03_Jquery</a></li>
+				<li><a href="exercise/jquery/160720/index.php" target="_self">04_Jquery</a></li>
 			</ul>
 		</td>
 		<td>
 			<ul>
 				<li>&nbsp;</li>
 				<li>02_성적/학생 Form </li>
+				<li>input - 자동 문자 완성 기능 </li>
+				<li>5천단어 읽어서...</li>
 			</ul>
 		</td>
 	</tr>
