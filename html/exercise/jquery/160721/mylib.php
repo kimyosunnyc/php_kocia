@@ -28,13 +28,13 @@ function get_words_2($input) {
 		mysqli_stmt_execute($stmt);
 		$result = mysqli_stmt_get_result($stmt);
 		
-		$i=0;
 		$words = array();
 		$wordAndRank = array();
 		while($wordAndRank = mysqli_fetch_assoc($result)){
-			$words[$i++] = $wordAndRank['word'];
+			$words[] = $wordAndRank['word'];
 		}
 		
+		asort ($words);
 		mysqli_free_result($result);
 		mysqli_close($conn);
 		return $words;

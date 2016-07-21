@@ -17,7 +17,7 @@ function getAutocompleteSource(userInput) {
 		data: {input: userInput}, // 서버에서 $_GET['input']으로 가는 것
 		success : function(result) {
 			source = result.split(' ');
-			alert(source);
+			//alert(source);
 		},
 		error: function(xhr) { // xml http request 약자
 			alert('Error');
