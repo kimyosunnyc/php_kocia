@@ -3,6 +3,20 @@
 <html>
 <head>
 	<link rel="stylesheet" type="text/css" href="/kimyost/style.css">
+	<script language="javascript" src="sha512.js"></script>
+	<script language="javascript" src="check_form.js"></script>
+	<script>
+	function tryLogin(form, password) {
+		var hash = document.createElement('input');
+		form.appendChild(hash);
+		hash.name = 'hash';
+		hash.type = 'hidden';
+		hash.value = hex_sha512(password.value);
+		password.value = '';
+		form.submit();
+		return true;
+	}
+	</script>
 </head>
 <body>
 
@@ -40,7 +54,7 @@
 		<tr>
 			<td>ID</td>
 			<td><input type="text" name="id"></td>
-			<td rowspan="2"><input type="submit" value="로그인"></td>
+			<td rowspan="2"><input type="button" value="로그인" onclick="tryLogin(this.form, this.form.password);"></td>
 		</tr>
 		<tr>
 			<td>Password</td>

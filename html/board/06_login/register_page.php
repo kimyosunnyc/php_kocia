@@ -3,6 +3,8 @@
 <html>
 <head>
 	<link rel="stylesheet" type="text/css" href="/kimyost/style.css">
+	<script language="javascript" src="sha512.js"></script>
+	<script language="javascript" src="check_form.js"></script>
 </head>
 <body>
 
@@ -19,7 +21,7 @@
 		<tr>
 			<td>이름</td>
 			<td><input type="text" name="user_real_name"></td>
-			<td rowspan="3"><input type="submit" value="가입하기"></td>
+			<td rowspan="4"><input type="button" value="가입하기" onclick="checkRegisterForm(this.form, this.form.id, this.form.password, this.form.password2);"></td>
 		</tr>
 		<tr>
 			<td>ID</td>
@@ -28,6 +30,10 @@
 		<tr>
 			<td>Password</td>
 			<td><input type="password" name="password"></td>
+		</tr>
+		<tr>
+			<td>Password Confirm</td>
+			<td><input type="password" name="password2"></td>
 		</tr>
 	</table>
 	
