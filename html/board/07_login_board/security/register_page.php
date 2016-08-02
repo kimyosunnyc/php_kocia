@@ -3,8 +3,8 @@
 <html>
 <head>
 	<link rel="stylesheet" type="text/css" href="/kimyost/style.css">
-	<script language="javascript" src="sha512.js"></script>
-	<script language="javascript" src="check_form.js"></script>
+	<script language="javascript" src="../js/sha512.js"></script>
+	<script language="javascript" src="../js/check_form.js"></script>
 </head>
 <body>
 

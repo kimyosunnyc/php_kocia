@@ -1,6 +1,6 @@
 <?php
 
-	require_once '../../../includes/mylib.php';
+	require_once $_SERVER["DOCUMENT_ROOT"].'/../includes/mylib.php';
 	$conn = db_connect();
 
 

@@ -3,9 +3,84 @@
 <html>
 <head>
 	<link rel="stylesheet" type="text/css" href="/kimyost/style.css">
+	<script language="javascript" src="js/sha512.js"></script>
+	<script language="javascript" src="js/check_form.js"></script>
+	<script>
+	function tryLogin(form, password) {
+		var hash = document.createElement('input');
+		form.appendChild(hash);
+		hash.name = 'hash';
+		hash.type = 'hidden';
+		hash.value = hex_sha512(password.value);
+		password.value = '';
+		form.submit();
+		return true;
+	}
+	</script>
 </head>
 
 <body>
+<div class="wrap_tb">
+<div style="float:right;margin-bottom:20px;"><a href="../../index.php">홈으로</a></div>
+<?php
+	require_once 'security/class_login.php';
+	$conn = db_connect();
+	require_once 'security/session.php';
+	start_session ();
+	if (check_login()) {
+?>
+	<table>
+	<tbody>
+		<colgroup>
+			<col width="90%">
+			<col width="10%">
+		</colgroup>
+		<tr>
+			<td>현재 로그인 된 상태입니다.</td>
+			<td>
+				<form action="security/logout.php" method="get">
+					<input type="submit" value="로그아웃">
+				</form>
+			</td>
+		</tr>
+	</tbody>
+	</table>
+
+<?php
+	} else {
+?>
+	<table>
+	<tbody>
+		<colgroup>
+			<col width="10%">
+			<col width="30%">
+			<col width="10%">
+			<col width="30%">
+			<col width="10%">
+			<col width="10%">
+		</colgroup>
+		<tr>
+		<form action="security/login.php" method="post">
+			<td>ID</td>
+			<td><input type="text" name="id"></td>
+			<td>Password</td>
+			<td><input type="password" name="password"></td>
+			<td><input type="button" value="로그인" onClick="tryLogin(this.form, this.form.password);"></td>
+		</form>
+			<td>
+				<form action="security/register_page.php" method="get">
+					<input type="submit" value="회원가입">
+				</form>
+			</td>
+		</tr>
+	</tbody>
+	</table>
+	
+<?php
+		
+	}
+?>
+</div>
 <div class="wrap_tb">
 	<div class="board_tb">
 		<h1>게시판 A</h1>
@@ -44,13 +119,19 @@
 			mysqli_free_result($result);
 			mysqli_close($conn);
 		?>
+		
+<?php
+	if (check_login()) {
+?>
 		<div class="board_btn">
 			<a href="post_write.php?board_id=0"><input type="button" value="글쓰기"></a>
 		</div>
+<?php 
+	}
+?>
 	</div>
 	
 	<div class="board_tb">
-		<div style="float:right;"><a href="../../index.php">홈으로</a></div>
 		<h1>게시판 B</h1>
 
 		<?php
@@ -85,9 +166,15 @@
 			mysqli_free_result($result);
 			mysqli_close($conn);
 		?>	
+<?php
+	if (check_login()) {
+?>
 		<div class="board_btn">
 			<a href="post_write.php?board_id=1"><input type="button" value="글쓰기"></a>
 		</div>
+<?php 
+	}
+?>
 	</div>
 </div>
 

@@ -5,9 +5,8 @@
 	<link rel="stylesheet" type="text/css" href="/kimyost/style.css">
 </head>
 <body>
-
 <div class="wrap">
-<div style="float:right;"><a href="../../index.php">홈으로</a></div>
+<div style="float:right;margin-bottom:20px;"><a href="../../index.php">홈으로</a></div>
 <h1>게시판</h1>
 
 <?php
@@ -19,7 +18,30 @@
 	require_once '../../../includes/mylib.php';
 	require_once 'class.php';
 	$conn = db_connect();
-
+	
+	require_once 'security/class_login.php';
+	require_once 'security/session.php';
+	start_session ();
+	
+	if (!isset($_SESSION['post_id'])) { // 게시물 화면에 처음 왔다.
+		if (!isset($_GET['post_id'])) { // 직전 화면이 메인 화면이 아니었다. 에러
+			die('view_post error');
+		} else {
+			$post_id = $_GET['post_id'];
+		}
+	} else if (!isset($_GET['post_id'])) { // 직전 화면이 메인 화면이 아님
+		$post_id = $_SESSION['post_id'];	
+	} else {
+		$post_id = $_GET['post_id'];
+	}
+	
+	$_SESSION['post_id'] = $post_id; // 마지막으로 본 게시물 기억
+	
+	$post = get_post_with_id($post_id);
+	$title = $post->getTitle();
+	$author = $post->getAuthor();
+	$content = $post->getContent();
+	
 ?>	
 	
 <table>
@@ -60,20 +82,33 @@
 	?>
 
 	</table>
-	<div style="float:right;margin-top:10px;">
-		<a href="post_edit.php?post_id=<?php echo $post->getId(); ?>&board_id=<?php echo $post->getBoardId(); ?>"><input type="button" value="수정하기"></a>
-	</div> 
-	<form action="post_delete.php" method="POST" style="margin-top:10px;">
+	<div style="float:left;margin-top:10px;">
 		<a href="index.php"><input type="button" value="목록보기"></a> 
+	</div> 
+	
+<?php
+	$replies = get_post_with_id($post_id);
+	if (check_login() && $_SESSION['id'] === $author) {
+?>
+		<div style="float:right;">
+	<form action="post_delete.php" method="POST" style="margin-top:10px;">
+		<a href="post_edit.php?post_id=<?php echo $post->getId(); ?>&board_id=<?php echo $post->getBoardId(); ?>"><input type="button" value="수정하기"></a>
 		<input type="hidden" name="post_id" value="<?php echo $post->getId(); ?>">
 		<input type="submit" value="삭제하기">
 	</form>
+	</div> 
+<?php 
+	}
+?>
 
 	
 <!-- 댓글 시작 -->
-	
+
 	<div class="comment">
 		<h2>Comment</h2>
+<?php	
+	if (check_login()) { // 로그인된 유저만 댓글작성 가능
+?>
 		<form name ="comment_form" method = "POST" action = "comment_insert.php">
 			<table>
 				<tbody>
@@ -88,9 +123,13 @@
 						<td><input type="text" name="visitor"></td>
 						<td><input type="submit" value="댓글쓰기"></td>
 					</tr>
+
 				</tbody>
 			</table>
 		</form>
+<?php
+	} 
+?>
 	</div>
 
 <?php 
@@ -118,11 +157,19 @@
 			</tr>
 		<?php
 			foreach ($comments as $key => $comment) {
-				echo '<tr>';
-				echo '<td>'.$comment->getCommentId().'</td>';
-				echo '<td><a href="comment_edit.php?comment_id='.$comment->getCommentId().'">'.$comment->getComment().'</a></td>';
-				echo '<td>'.$comment->getVisitor().'</td>';
-				echo '</tr>';
+				if (check_login() && $_SESSION['id'] === $comment->getVisitor()) {
+					echo '<tr>';
+					echo '<td>'.$comment->getCommentId().'</td>';
+					echo '<td><a href="comment_edit.php?comment_id='.$comment->getCommentId().'">'.$comment->getComment().'</a></td>';
+					echo '<td>'.$comment->getVisitor().'</td>';
+					echo '</tr>';
+				} else {
+					echo '<tr>';
+					echo '<td>'.$comment->getCommentId().'</td>';
+					echo '<td>'.$comment->getComment().'</td>';
+					echo '<td>'.$comment->getVisitor().'</td>';
+					echo '</tr>';
+				}
 			}
 		?>
 			</tbody>

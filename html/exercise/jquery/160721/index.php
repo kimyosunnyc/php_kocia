@@ -14,10 +14,17 @@ function getAutocompleteSource(userInput) {
 	$.ajax({
 		url:'word.php',
 		async: false,
-		data: {input: userInput}, // 서버에서 $_GET['input']으로 가는 것
+		data: {input: userInput}, // 서버에서 클라이언트로 $_GET['input']으로 가는 것
+		//dataType : 'json', // 서버에서 받을 때 어레이 그대로 출력
+		//dataType : 'text', // 만약 dataType 이 text 이면 함수 안에서 JSON.parse(객체) 기능을 활용하여 문자열의 어레이만 가져올 수 있다.
+		// JSON.parse(객체) 와 반대 : JSON.stringify(객체)
+		// a, b, c <=> ["a", "b", "c"]
+		
 		success : function(result) {
-			source = result.split(' ');
-			//alert(source);
+			//source = result.split(' ');
+			source = result
+			//source = JSON.parse(result); // 일 때 결과값 테스트 하는경우 : alert(source)
+			//alert(result);
 		},
 		error: function(xhr) { // xml http request 약자
 			alert('Error');

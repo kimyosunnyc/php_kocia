@@ -6,11 +6,6 @@
 </head>
 <body>
 
-<div class="wrap">
-<div style="float:right;"><a href="../../index.php">홈으로</a></div>
-<h1>로그인</h1>
-
-
 <?php
 
 require_once 'session.php';
@@ -22,7 +17,7 @@ if (isset($_POST['id'], $_POST['password'])) {
 
     if (try_to_login($id, $password) == true) { 
 		//echo 'ok'; 
-		header('Location: protected_page.php'); // 리다이렉팅
+		header('Location: ../index.php'); // 리다이렉팅
     } else {
 		//echo 'no'; 
 		// 이멜주소 또는 비번이 등록되지 않았거나 틀림
@@ -35,8 +30,5 @@ if (isset($_POST['id'], $_POST['password'])) {
 
 ?>
 
-
-
-</div>
 </body>
 </html>

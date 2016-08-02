@@ -1,6 +1,6 @@
 <?php
-require_once '../../../includes/mylib.php';
-$conn = db_connect();
+require_once $_SERVER["DOCUMENT_ROOT"]."/../includes/my/mylib.php";
+define("USER_ACCOUNTS_FILE_NAME", "user_accounts.txt");
 
 // 하나의 페이지에서 한 번만 호출되어야 한다.
 function start_session() {
@@ -49,9 +49,8 @@ function try_to_login($id, $password) {
 }
 
 function check_user_account($id, $password) {
-
-	$conn = db_connect();
-	$stmt = mysqli_prepare($conn, "SELECT hash FROM kimyosunny.user_account WHERE id = ?");
+	$conn = get_db_connection();
+	$stmt = mysqli_prepare($conn, "SELECT hash FROM user_account WHERE id = ?");
 	mysqli_stmt_bind_param($stmt, "s", $id);
 	mysqli_stmt_execute($stmt);
 	$result = mysqli_stmt_get_result($stmt);
@@ -60,10 +59,6 @@ function check_user_account($id, $password) {
 	} else {
 		$row = mysqli_fetch_assoc($result);
 		$hash = $row["hash"];
-		
-		echo $password."<br>". $hash."<br>";
-		echo intval(password_verify($password, $hash));
-	
 		return password_verify($password, $hash);
 	}
 	mysqli_free_result($result);

@@ -24,6 +24,7 @@
 				<li><a href="board/04_edit/index.php" target="_self">04_edit : 게시글 수정</a></li>
 				<li><a href="board/05_class/index.php" target="_self">05_class : class로 기능 묶기</a></li>
 				<li><a href="board/06_login/index.php" target="_self">06_로그인</a> </li>
+				<li><a href="board/07_login_board/index.php" target="_self">07_로그인하고 게시판</a> </li>
 			</ul>
 		</td>
 		<td>
@@ -33,7 +34,8 @@
 				<li>03_table : 게시글 write / list / view page (DB연결) </li>
 				<li>&nbsp;</li>
 				<li>게시글 수정, 삭제 / 댓글 수정, 삭제까지 함</li>
-				<li>로그인 유저랑 연결시켜야 함 - <span style="color:#f00;">아직 못함 </span></li>
+				<li>회원가입/로그인만 됨</li>
+				<li><span style="color:#f00;">아직 못함 </span></li>
 			</ul>
 		</td>
 	</tr>
