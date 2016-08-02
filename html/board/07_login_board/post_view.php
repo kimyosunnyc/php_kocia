@@ -141,19 +141,22 @@
 <?php 	
 	} else {
 ?>
-	<div class="comment" style="margin-bottom:150px;">
+	<div style="margin:20px 0 150px 0;">
 		<table>
 			<tbody>
 			<colgroup>
 				<col width="7%">
-				<col width="45%">
-				<col width="20%">
-				<col width="28%">
+				<col width="51%">
+				<col width="12%">
+				<col width="10%">
+				<col width="10%">
 			</colgroup>
 			<tr>
 				<th>번호</th>
 				<th>내용</th>
 				<th>작성자</th>
+				<th>수정</th>
+				<th>삭제</th>
 			</tr>
 		<?php
 			foreach ($comments as $key => $comment) {
@@ -162,12 +165,16 @@
 					echo '<td>'.$comment->getCommentId().'</td>';
 					echo '<td><a href="comment_edit.php?comment_id='.$comment->getCommentId().'">'.$comment->getComment().'</a></td>';
 					echo '<td>'.$comment->getVisitor().'</td>';
+					echo '<td><input type="button" name="comment_edit" value="수정"></td>';
+					echo '<td><input type="button" name="comment_delete" value="삭제"></td>';
 					echo '</tr>';
 				} else {
 					echo '<tr>';
 					echo '<td>'.$comment->getCommentId().'</td>';
 					echo '<td>'.$comment->getComment().'</td>';
 					echo '<td>'.$comment->getVisitor().'</td>';
+					echo '<td></td>';
+					echo '<td></td>';
 					echo '</tr>';
 				}
 			}
