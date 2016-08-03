@@ -1,71 +1,170 @@
+<?php
+	require_once 'class.php';
+	require_once 'security/session.php';
+	require_once 'security/class_login.php';
+	start_session();
+?>
+
 <!DOCTYPE html>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <html>
 
 <head>
 <link rel="stylesheet" type="text/css" href="/kimyost/style.css">
+<script language="javascript" src="js/check_form.js"></script>
+<script language="javascript" src="js/jquery-1.11.2.js"></script>
 <script>
-/* 댓글 스크롤 */
 function setDisplay(elems, mode) {
 	for (var i = 0; i < elems.length; i++) {
 		elems[i].style.display = mode;
 	}	
 }
+
+function getRowByCommentId(row) {
+	return document.getElementById('comment_id' + row);
+}
+
 function getCommentButtons() {
 	return Array.prototype.slice.call(document.getElementsByClassName('edit_comment_button')).concat(
 			Array.prototype.slice.call(document.getElementsByClassName('delete_comment_button')));;
 }
+
 function resetCommentButtonDisplay() {
 	setDisplay(getCommentButtons(), '');
-} 
+}
 
-/* 댓글 바로 수정 */
+function deleteRowById(table, rowId) {
+	for (var i = 0; i < table.rows.length; i++) {
+		if (table.rows[i].id === rowId) {
+			table.deleteRow(i);
+			return;
+		}
+	}
+	alert('deleteRowById not found');
+}
+
+function addComment(postId, author, textarea) {
+	//alert(comment);
+	var comment = textarea.value;
+	textarea.value = '';
+	if (comment === '') {
+		alert('댓글 빈칸안됨');
+		return false;
+	}
+	
+	var comment_id = ajaxAddComment(postId, comment);
+	//alert(reply_id);
+	var table = document.getElementById('comment-table');
+	var row = table.insertRow(1);
+	row.id = 'comment_id' + comment_id;
+	row.innerHTML = document.getElementById('prototype_row').innerHTML;
+	row.children[0].innerHTML = author;
+	row.children[1].innerHTML = htmlspecialchars(comment);
+	//row.children[2].children[0].onclick = function(i) { return function() { editComment(row.children[2].children[0], i); }} (comment_id);
+	row.children[2].children[0].onclick = function() { editComment(row.children[2].children[0], comment_id); }
+	row.children[3].children[0].onclick = function() { deleteComment(comment_id); }
+}
+
 var isEditCommentMode = false;
-
-function editComment(button, commentId, form) {
-	var cell = document.getElementById(commentId);
+function editComment(button, commentId) {
+	var cell = getRowByCommentId(commentId).children[1];
 	if (isEditCommentMode == false) {
-		var content = cell.innerHTML;
+		//alert(commentId);
+		var comment = cell.innerHTML;
 		cell.innerHTML = '';
 		var textarea = document.createElement('textarea');
 		textarea.id = commentId + 'textarea';
 		cell.appendChild(textarea);
-		textarea.value = content;
+		textarea.value = comment;
 		textarea.cols = 60;
 		isEditCommentMode = true;
+		setDisplay(getCommentButtons(), 'none'); // 댓글 수정 중에 다른 댓글 수정 버튼을 누르면...
+		button.style.display = '';
 		button.value = '수정완료';
 	} else {
 		var textarea = document.getElementById(commentId + 'textarea');
-		var content = textarea.value;
-		if (content == '') {
+		var comment = textarea.value;
+		if (comment == '') {
 			alert('댓글은 빈칸 안됨');
 			textarea.focus();
 			return false;
 		}
-		//cell.innerHTML = content;
+		ajaxEditComment(commentId, comment);
+		cell.innerHTML = htmlspecialchars(comment);
 		isEditCommentMode = false;
+		resetCommentButtonDisplay();
 		button.value = '수정';
-		var element = document.createElement('input');
-		form.appendChild(element);
-		element.name = 'content';
-		element.type = 'hidden';
-		element.value = content;
-		form.submit();
 	}
-	return false;
+}
+
+function deleteComment(commentId) {	
+	if (confirm('정말 삭제하겟습니까?')) {
+		ajaxDeleteComment(commentId);
+		var table = document.getElementById('comment-table');
+		deleteRowById(table, 'comment_id' + commentId);
+	} 
+}
+
+function ajaxAddComment(postId, comment) {
+	var commentId = '';
+	$.ajax({ 
+		url: 'ajax_add_comment.php',
+		type: 'POST',
+		async: false,
+		data: { post_id: postId, comment: comment },
+		success: function(result) {
+			//alert('result' + result);
+			commentId = result;
+		},
+		error: function(xhr) {
+			alert('ajaxEditComment');
+		},
+		timeout : 1000
+	});	
+	return commentId;
+}
+function ajaxEditComment(commentId, newContent) {
+	$.ajax({ 
+		url: 'ajax_edit_comment.php',
+		type: 'POST',
+		async: false,
+		data: { comment_id: commentId, comment: newContent },
+		success: function(result) {
+		},
+		error: function(xhr) {
+			alert('ajaxEditComment');
+		},
+		timeout : 1000
+	});		
+}
+function ajaxDeleteComment(commentId) {
+	$.ajax({ 
+		url: 'ajax_delete_comment.php',
+		type: 'POST',
+		async: false,
+		data: { comment_id: commentId },
+		success: function(result) {
+		},
+		error: function(xhr) {
+			alert('ajaxDeleteComment');
+		},
+		timeout : 1000
+	});		
 }
 
 var currentDisplayedComments = 0;
-var commentBlockSize = 10;
-function showMoreComments(numTotalComments, button) {
-	//alert('b');
+var replyBlockSize = 10;
+function showMoreComments(button) {
+	var table = document.getElementById('comment-table');
+	var numTotalComments = table.rows.length;
+	//alert(numTotalComments);
 	var nextDisplayedComments = Math.min(currentDisplayedComments + commentBlockSize, numTotalComments);
-	for (var row = 0; row < numTotalComments; row++) {
-		var element = document.getElementById('comment_row_num' + row);
-		if (row < nextDisplayedComments) {
-			element.style.display = '';
+	for (var rownum = 0; rownum < numTotalComments; rownum++) {
+		var row = table.rows[rownum];
+		if (rownum < nextDisplayedComments) {
+			row.style.display = '';
 		} else {
-			element.style.display = 'none';
+			row.style.display = 'none';
 		}
 	}
 	currentDisplayedComments = nextDisplayedComments;
@@ -87,13 +186,6 @@ function showMoreComments(numTotalComments, button) {
 $number_confirm = $_GET['post_id'];
 $board_id = $_GET['board_id'];
 }*/
-require_once '../../../includes/mylib.php';
-require_once 'class.php';
-require_once 'security/class_login.php';
-require_once 'security/session.php';
-
-start_session ();
-$conn = db_connect();
 
 if (!isset($_SESSION['post_id'])) { // 게시물 화면에 처음 왔다.
     if (!isset($_GET['post_id'])) { // 직전 화면이 메인 화면이 아니었다. 에러
@@ -116,7 +208,7 @@ $_SESSION['board_id'] = $board_id;
 $post = get_post_with_id($post_id);
 $title = $post->getTitle();
 $author = $post->getAuthor();
-$content = $post->getContent();
+$comment = $post->getContent();
 
 ?>
 
@@ -142,7 +234,7 @@ $content = $post->getContent();
 		</tr>
 		<tr>
 			<td colspan="4">
-				<textarea name="content" rows="10" cols="100%" readonly><?php echo $post->getContent(); ?>
+				<textarea name="comment" rows="10" cols="100%" readonly><?php echo $post->getContent(); ?>
 				</textarea>
 			</td>
 		</tr>
@@ -200,7 +292,15 @@ if (count($comments) == 0) {
 } else {
 ?>
 	<div style="margin:20px 0;">
+		<table style="display: none;">
+			<tr id="prototype_row">
+				<td width="15%">comment_author</td>
+				<td width="75%">comment_content</td>
+				<td><input class="edit_comment_button" type="button" value="수정" style="width: 70px;"> </input></td>
+				<td><input class="delete_comment_button" type="button" value="삭제" style="width: 70px;"> </input></td>
+			</tr>
 		<table>
+		<table id="comment-table" class="post-table">
 		<tbody>
 			<colgroup>
 				<col width="7%">
@@ -217,32 +317,33 @@ if (count($comments) == 0) {
 				<th>삭제</th>
 			</tr>
 			<?php
-				$comment_row_num = 0;
+				/*$comment_row_num = 0;
 				foreach ($comments as $key => $comment) {
 					$comment_id = $comment->getCommentId();
 					$comment_content = $comment->getComment();
-					$visitor = $comment->getVisitor();
+					$visitor = $comment->getVisitor();*/
+					
+				for($i = 0; $i < count($comments); $i++) { 
+				$comment = $comments[$i];
+				$comment_id = $comment->getCommentId();
+				$comment_content = $comment->getComment();
+				$visitor = $comment->getVisitor();
+					
 			?>
 				<tr id="comment_row_num<?php echo $comment_row_num; ?>">
 					<td><?php echo $comment_id; ?></td>
 					<td id="<?php echo $comment_id; ?>"><?php echo htmlspecialchars($comment_content); ?></td>
 					<td><?php echo $visitor; ?></td>
 				<?php
-					$comment_row_num++;
+
 					if (check_login() && $_SESSION['id'] === $visitor) {
 				?>
 					<td>
-						<form action="comment_edit.php" method="post">
-							<input type="button" value="수정" onClick="editComment(this, <?php echo $comment_id; ?>, this.form);"> </input>
-							<input type="hidden" name="comment_id" value="<?php echo $comment_id; ?>"></input>
-						</form>
+						<input  class="edit_comment_button" type="button" value="수정" onclick="editComment(this, <?php echo $comment_id; ?>);"> </input>
 					</td>
 					<td>
-						<form action="comment_delete.php" method="post">
-							<input type="submit" value="삭제"> </input>
-							<input type="hidden" name="comment_id" value="<?php echo $comment_id; ?>"></input>
-						</form>
-				</td>
+						<input class="delete_comment_button" type="button" value="삭제" onclick="deleteComment(<?php echo $comment_id; ?>);"> </input>
+					</td>
 				<?php
 					} else {
 						echo '<td></td>';
