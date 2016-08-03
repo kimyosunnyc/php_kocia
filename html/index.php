@@ -25,6 +25,7 @@
 				<li><a href="board/05_class/index.php" target="_self">05_class : class로 기능 묶기</a></li>
 				<li><a href="board/06_login/index.php" target="_self">06_로그인</a> </li>
 				<li><a href="board/07_login_board/index.php" target="_self">07_로그인하고 게시판</a> </li>
+				<li><a href="board/07_login_board/index.php" target="_self">08_게시판 댓글 ajax</a> </li>
 			</ul>
 		</td>
 		<td>
@@ -35,6 +36,7 @@
 				<li>&nbsp;</li>
 				<li>게시글 수정, 삭제 / 댓글 수정, 삭제까지 함</li>
 				<li>회원가입/로그인만 됨</li>
+				<li>&nbsp;</li>
 				<li><span style="color:#f00;">아직 못함 </span></li>
 			</ul>
 		</td>

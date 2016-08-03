@@ -70,12 +70,12 @@ function editComment(button, commentId) {
 	var cell = getRowByCommentId(commentId).children[1];
 	if (isEditCommentMode == false) {
 		//alert(commentId);
-		var comment = cell.innerHTML;
+		var content = cell.innerHTML;
 		cell.innerHTML = '';
 		var textarea = document.createElement('textarea');
 		textarea.id = commentId + 'textarea';
 		cell.appendChild(textarea);
-		textarea.value = comment;
+		textarea.value = content;
 		textarea.cols = 60;
 		isEditCommentMode = true;
 		setDisplay(getCommentButtons(), 'none'); // 댓글 수정 중에 다른 댓글 수정 버튼을 누르면...
@@ -83,14 +83,14 @@ function editComment(button, commentId) {
 		button.value = '수정완료';
 	} else {
 		var textarea = document.getElementById(commentId + 'textarea');
-		var comment = textarea.value;
-		if (comment == '') {
+		var content = textarea.value;
+		if (content == '') {
 			alert('댓글은 빈칸 안됨');
 			textarea.focus();
 			return false;
 		}
-		ajaxEditComment(commentId, comment);
-		cell.innerHTML = htmlspecialchars(comment);
+		ajaxEditComment(commentId, content);
+		cell.innerHTML = htmlspecialchars(content);
 		isEditCommentMode = false;
 		resetCommentButtonDisplay();
 		button.value = '수정';
@@ -111,7 +111,7 @@ function ajaxAddComment(postId, comment) {
 		url: 'ajax_add_comment.php',
 		type: 'POST',
 		async: false,
-		data: { post_id: postId, comment: comment },
+		data: { post_id: postId, content: comment },
 		success: function(result) {
 			//alert('result' + result);
 			commentId = result;
@@ -128,7 +128,7 @@ function ajaxEditComment(commentId, newContent) {
 		url: 'ajax_edit_comment.php',
 		type: 'POST',
 		async: false,
-		data: { comment_id: commentId, comment: newContent },
+		data: { comment_id: commentId, content: newContent },
 		success: function(result) {
 		},
 		error: function(xhr) {
@@ -317,20 +317,15 @@ if (count($comments) == 0) {
 				<th>삭제</th>
 			</tr>
 			<?php
-				/*$comment_row_num = 0;
-				foreach ($comments as $key => $comment) {
-					$comment_id = $comment->getCommentId();
-					$comment_content = $comment->getComment();
-					$visitor = $comment->getVisitor();*/
 					
 				for($i = 0; $i < count($comments); $i++) { 
 				$comment = $comments[$i];
-				$comment_id = $comment->getCommentId();
-				$comment_content = $comment->getComment();
 				$visitor = $comment->getVisitor();
+				$comment_content = $comment->getComment();
+				$comment_id = $comment->getCommentId();
 					
 			?>
-				<tr id="comment_row_num<?php echo $comment_row_num; ?>">
+				<tr id="comment_id<?php echo $comment_id; ?>">
 					<td><?php echo $comment_id; ?></td>
 					<td id="<?php echo $comment_id; ?>"><?php echo htmlspecialchars($comment_content); ?></td>
 					<td><?php echo $visitor; ?></td>
@@ -356,11 +351,8 @@ if (count($comments) == 0) {
 		</table>
 		<p>
 			<input type="button" id="show_more_comment_button" value="댓글 더보기" style="float: right;" 
-			onClick="showMoreComments(<?php echo count($comments); ?>, this);"> </input><br><br>   
-			<script>
-				showMoreComments(<?php echo count($comments); ?>, 
-				document.getElementById('show_more_comment_button'));
-			</script>
+			onClick="showMoreComments(this);"> </input><br><br>   
+			<script>showMoreComments(document.getElementById('show_more_comment_button')); </script>
 		</p>
 	</div>
 <?php
