@@ -25,7 +25,7 @@
 				<li><a href="board/05_class/index.php" target="_self">05_class : class로 기능 묶기</a></li>
 				<li><a href="board/06_login/index.php" target="_self">06_로그인</a> </li>
 				<li><a href="board/07_login_board/index.php" target="_self">07_로그인하고 게시판</a> </li>
-				<li><a href="board/07_login_board/index.php" target="_self">08_게시판 댓글 ajax</a> </li>
+				<li><a href="board/08_board_comment_ajax/index.php" target="_self">08_게시판 댓글 ajax</a> </li>
 			</ul>
 		</td>
 		<td>
@@ -96,7 +96,7 @@
 				<li><a href="exercise/list.php" target="_self">01_list</a></li>
 				<li><a href="exercise/board/02_grade/index.php" target="_self">02_grade</a></li>
 				<li><a href="exercise/jquery/160720/lecture_6_51_jquery_autocomplete_ajax.php" target="_self">03_Jquery</a></li>
-				<li><a href="exercise/jquery/160720/index.php" target="_self">04_Jquery</a></li>
+				<li><a href="exercise/jquery/160720/index.php" target="_self">04_사전(AJAX)</a></li>
 				<li><a href="exercise/jquery/160721/index.php" target="_self">04_Jquery +</a></li>
 			</ul>
 		</td>

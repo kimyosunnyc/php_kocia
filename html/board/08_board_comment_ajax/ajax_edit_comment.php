@@ -3,6 +3,9 @@
 	require_once 'security/session.php';
 	
 	start_session();
+	$conn = db_connect();
+	
+	
 	if (!check_login()) {
 		die('부정한 접근!');
 	}
@@ -13,6 +16,13 @@
 		die('post가 아님');
 	}
 
-	$comment_id = $_POST['comment_id'];
-	$comment = $_POST['comment'];
-	edit_comment($comment_id, $comment);
+	
+	if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+
+		$comment_id = $_POST['comment_id'];
+		$content = $_POST['content'];
+	}
+	
+	$result = edit_comment ($comment_id, $content);
+	echo $result;
+

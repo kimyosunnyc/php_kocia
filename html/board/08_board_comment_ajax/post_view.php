@@ -43,26 +43,27 @@ function deleteRowById(table, rowId) {
 	alert('deleteRowById not found');
 }
 
-function addComment(postId, author, textarea) {
-	//alert(comment);
-	var comment = textarea.value;
+function addComment(postId, visitor, textarea) {
+	//alert(content);
+	var content = textarea.value;
 	textarea.value = '';
-	if (comment === '') {
+	if (content === '') {
 		alert('댓글 빈칸안됨');
 		return false;
 	}
 	
-	var comment_id = ajaxAddComment(postId, comment);
-	//alert(reply_id);
+	var comment_id = ajaxAddComment(postId, content);
+	//alert(comment_id);
 	var table = document.getElementById('comment-table');
 	var row = table.insertRow(1);
 	row.id = 'comment_id' + comment_id;
 	row.innerHTML = document.getElementById('prototype_row').innerHTML;
-	row.children[0].innerHTML = author;
-	row.children[1].innerHTML = htmlspecialchars(comment);
+	row.children[0].innerHTML = comment_id;
+	row.children[1].innerHTML = htmlspecialchars(content);
 	//row.children[2].children[0].onclick = function(i) { return function() { editComment(row.children[2].children[0], i); }} (comment_id);
-	row.children[2].children[0].onclick = function() { editComment(row.children[2].children[0], comment_id); }
-	row.children[3].children[0].onclick = function() { deleteComment(comment_id); }
+	row.children[2].innerHTML = visitor;
+	row.children[3].children[0].onclick = function() { editComment(row.children[3].children[0], comment_id); }
+	row.children[4].children[0].onclick = function() { deleteComment(comment_id); }
 }
 
 var isEditCommentMode = false;
@@ -135,7 +136,7 @@ function ajaxEditComment(commentId, newContent) {
 			alert('ajaxEditComment');
 		},
 		timeout : 1000
-	});		
+	});
 }
 function ajaxDeleteComment(commentId) {
 	$.ajax({ 
@@ -153,7 +154,7 @@ function ajaxDeleteComment(commentId) {
 }
 
 var currentDisplayedComments = 0;
-var replyBlockSize = 10;
+var commentBlockSize = 10;
 function showMoreComments(button) {
 	var table = document.getElementById('comment-table');
 	var numTotalComments = table.rows.length;
@@ -293,9 +294,17 @@ if (count($comments) == 0) {
 ?>
 	<div style="margin:20px 0;">
 		<table style="display: none;">
+			<colgroup>
+				<col width="7%">
+				<col width="51%">
+				<col width="12%">
+				<col width="10%">
+				<col width="10%">
+			</colgroup>
 			<tr id="prototype_row">
-				<td width="15%">comment_author</td>
-				<td width="75%">comment_content</td>
+				<td>comment_id</td>
+				<td>comment_author</td>
+				<td>comment_content</td>
 				<td><input class="edit_comment_button" type="button" value="수정" style="width: 70px;"> </input></td>
 				<td><input class="delete_comment_button" type="button" value="삭제" style="width: 70px;"> </input></td>
 			</tr>
@@ -362,7 +371,7 @@ if (count($comments) == 0) {
 	if (check_login()) { // 로그인된 유저만 댓글작성 가능
 ?>
 	<div style="margin-bottom:150px;">
-		<form name="comment_form" method="POST" action="comment_insert.php">
+		<form>
 			<table>
 			<tbody>
 				<colgroup>
@@ -373,10 +382,10 @@ if (count($comments) == 0) {
 					<td>
 						<input type="hidden" name="post_id" value="<?php echo $post->getId(); ?>">
 						<input type="hidden" name="visitor" value="<?php echo $visitor; ?>">
-						<textarea rows="3" type="text" name="comment"></textarea>
+						<textarea rows="3" type="text" name="content"></textarea>
 					</td>
 					<td>
-						<input type="submit" value="댓글쓰기">
+						<input type="button" value="댓글쓰기" onclick="addComment(<?php echo $post_id; ?>, '<?php echo $_SESSION['id']; ?>', this.form.content)";></input>
 					</td>
 				</tr>
 			</tbody>

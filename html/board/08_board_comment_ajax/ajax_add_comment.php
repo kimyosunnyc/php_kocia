@@ -16,19 +16,28 @@
 		die('post_id가 설정되어 잇지 안음');
 	}
 	
-	$post_id = $_POST['post_id'];
-	$visitor = $_SESSION['id'];
+	
+	if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+
+		$post_id = $_POST['post_id'];
+		$visitor = $_SESSION['id'];
+	}
+	
+	$result = add_comment($content, $visitor, $post_id);
+	echo $result;
+	
+	
 	if (isset($_POST['fill_data'])) { // 테스트
 		$number_of_comments = 300;
 		for ($index = 0; $index < $number_of_posts; $index++) {
-			$comment = sprintf('%d 번째 댓글의 내용', $index);			
-			add_comment($post_id, $visitor, $comment);
+			$content = sprintf('%d 번째 댓글의 내용', $index);			
+			add_comment($content, $visitor, $post_id);
 		}		
 	} else { // 실사용
-		$comment = $_POST['comment'];
-		if ($comment === '') {	 
+		$content = $_POST['content'];
+		if ($content === '') {	 
 			die('빈 칸 금지입니다.');
 		} else {
-			echo add_comment($post_id, $visitor, $comment);
+			echo add_comment($content, $visitor, $post_id);
 		}
 	}
