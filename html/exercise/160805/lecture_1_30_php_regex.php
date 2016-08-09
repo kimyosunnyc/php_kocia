@@ -21,7 +21,7 @@
 	$text = 'I am a boy. She is a girl.';
 	echo '<span style="color:blue;">Q3. I am a boy. She is a girl. 문장을 <>안에 넣어보자.</span><br>';
 	echo htmlspecialchars('A3. '.preg_replace($regex, '<\1>', $text));
-	echo '<br><br>';
+	echo '<br><br><hr><br>';
 ?>
 <?php
 	$regex = '/<([^>]+)>([^<]+)<\/\1>/';
@@ -42,7 +42,7 @@
 	echo '둘째놈 괄호 2: '.htmlspecialchars($matches[2][1]).'<br><br>';
 	
 	echo htmlspecialchars('치환 결과: '.preg_replace($regex, '<\1 style="color:red;">\2</\1>', $text));
-	echo '<br><br>';
+	echo '<br><br><hr><br>';
 	
 	$regex = '/[-:]+/';
 	$text = '01 0  - 6 605: 19 17';
@@ -50,20 +50,38 @@
 	echo '원래 값: '.$text.'<br>';
 	echo 'split 하고 implode 한 결과: '.$result.'<br>';
 	echo '최종 replace 결과: '.preg_replace('/\s+/', '', $result);
-	echo '<br><br><br>';
+	echo '<br><br><hr><br>';
 ?>
 
 <?php
-	$regex = '/<(\s*[a-zA-Z]+\s*=\s*\"[a-zA-Z]+\"\s*)>([^<]+)<\/\1>/';
-	$text = '<span  class = "my_class"  id ="a1" >동해물과 백두산이 마르고 닳도록</span >';
+	$regex = '/([\w-]+)\s*/';
+	$text = '<span  class = "my-class"  id ="a1" >동해물과 백두산이 마르고 닳도록</span >';
 	
-	$result = preg_replace($regex, '<\1>\2</\1>', $text);
-	echo $result;
-	
-	echo "<script>alert('".$result."');</script>";
+	$replace1 = preg_replace($regex, '\1 ', $text);
+	$replace2 = preg_replace('/<\s*/', '<', $replace1);
+	$replace3 = preg_replace('/\s*>/', '>', $replace2);
+	$replace4 = preg_replace('/\s*=\s*/', '=', $replace3);
+	$replace5 = preg_replace('/\s*\"/', '"', $replace4);
+
+	echo $replace5;
+
+	echo "<script>alert('세번째 : ".$replace5."');</script>";
+	echo '<br><br><hr><br>';
 ?>
 
+<?php
 
+	$regex = '[^$ \s*]([a-z\d-]+)\s*=\s*\"\s*([^"]*)\s*\"\s*(?=[a-z>])';
+	echo '<span class="my-class" id="my-id">텍스트</span>';
+	a = " ";
+	$a = " ";
+	
+	b = 5;
+	$b = 5;
+	var cvs = "abc";
+	$c = "abc";
+
+?>
 
 
 

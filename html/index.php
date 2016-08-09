@@ -97,7 +97,8 @@
 				<li><a href="exercise/board/02_grade/index.php" target="_self">02_grade</a></li>
 				<li><a href="exercise/jquery/160720/lecture_6_51_jquery_autocomplete_ajax.php" target="_self">03_Jquery</a></li>
 				<li><a href="exercise/jquery/160720/index.php" target="_self">04_사전(AJAX)</a></li>
-				<li><a href="exercise/jquery/160721/index.php" target="_self">04_Jquery +</a></li>
+				<li><a href="exercise/jquery/160721/index.php" target="_self">05_Jquery +</a></li>
+				<li><a href="exercise/160809/lecture_7_04_jquery_ui_effect.php" target="_self">06_lecture_7_04_jquery_ui_effect</a></li>
 			</ul>
 		</td>
 		<td>
@@ -107,6 +108,7 @@
 				<li>input - 자동 문자 완성 기능 </li>
 				<li>5천단어 읽어서...</li>
 				<li>10만개 단어 읽어서...(앞 : 순위있는 단어, 뒤 : 순위 없는 단어)</li>
+				<li>&nbsp;</li>
 			</ul> 
 		</td>
 	</tr>
