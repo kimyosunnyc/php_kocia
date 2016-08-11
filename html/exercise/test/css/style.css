@@ -1,0 +1,19 @@
+.wrap{width:100%;padding-top:30px;margin-bottom:100px;}
+.content{margin:0 auto;width:1000px;}
+ul li {line-height:1.5em;}
+
+hr {margin:40px 0;width:1000px;border-top:1px dotted black;border-bottom:none;}
+h3{background:url(../images/bullet_red_32.png) left center no-repeat;padding-left:35px;margin-bottom:0;}
+.summary{font-size:15px;margin:10px 0 20px 0;}
+
+.tb01 {margin-top:20px;width:1000px;border:1px solid #000;border-collapse:collapse;}
+.tb01 td, .tb01 th {border:1px solid #000;padding:10px;text-align:center;}
+.tb01 ul{margin:0;padding:0;}
+.tb01 ul li{list-style:none;}
+
+.pcolor1{color:#2C00B2;}
+.pcolor2{color:#FC4305;}
+.pcolor3{color:#1000FF;}
+.pcolor4{color:#FF0084;}
+.pcolor5{color:#0A00A3;}
+.pcolor6{color:#7F7F7F;}
