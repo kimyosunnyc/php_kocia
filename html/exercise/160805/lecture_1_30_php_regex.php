@@ -70,7 +70,7 @@
 ?>
 
 <?php
-
+/*
 	$regex = '[^$ \s*]([a-z\d-]+)\s*=\s*\"\s*([^"]*)\s*\"\s*(?=[a-z>])';
 	echo '<span class="my-class" id="my-id">텍스트</span>';
 	a = " ";
@@ -80,7 +80,7 @@
 	$b = 5;
 	var cvs = "abc";
 	$c = "abc";
-
+*/
 ?>
 
 

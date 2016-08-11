@@ -25,7 +25,7 @@
 		//echo 'Inserting new post, title: '.$title.' author: '.$author.' content: '.$content.' note: '.$note.'<br><br>';
 		echo 'Inserting new post, title: '.$title.' author: '.$author.' content: '.htmlspecialchars($content).'<br><br>';
 		$conn = db_connect();
-		$query = 'INSERT INTO kimyosunny.post (title, content, author, note, board_id) VALUES (?, ?, ?, ?, ?);';
+		$query = 'INSERT INTO kimyosunny.post (title, content, author, note, board_id) VALUES (?, ?, ?, ?, ?)';
 		$stmt = mysqli_prepare($conn, $query);
 		mysqli_stmt_bind_param($stmt, 'ssssi', $title, $content, $author, $note, $board_id);
 		if (!mysqli_stmt_execute($stmt)) {
