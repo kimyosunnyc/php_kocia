@@ -7,10 +7,10 @@
 
 <body>
 <div class="wrap">
-<h1 style="text-align:center;margin-bottom:50px;">PHP, HTML, MySQL, JavaScript 요약 정리 테스트</h1>
+<h1>PHP, HTML, MySQL, JavaScript 요약 정리 테스트</h1>
 <div class="content">
 <h2>타입 전환 테이블</h2>
-<iframe src="type_table.php" frameborder="0" width="100%" height="550" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+<iframe src="type_table.php" frameborder="0" marginwidth="0" marginheight="0" ></iframe>
 <hr>
 <h2>내림, 올림, 반올림</h2>
 <ul>
@@ -195,6 +195,10 @@
 	</li>
 </ul>
 <hr>
+<h2>PHP 정규표현식</h2>
+
+
+
 
 </div>
 </div>
