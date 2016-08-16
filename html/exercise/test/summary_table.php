@@ -8,8 +8,15 @@
 
 <body>
 <div class="wrap">
+<div style="float:right;"><a href="../../index.php">홈으로</a></div>
 <h1>PHP, HTML, MySQL, JavaScript 요약 정리 테스트</h1>
 <div class="content">
+<div class="tab">
+	<ul>
+		<li><a href="summary_table.php">요약정리 파일 테스트</a></li>
+		<li><a href="test_in_class.php">강의 추가 테스트</a></li>
+	</ul>
+</div>
 <h2>타입 전환 테이블</h2>
 <iframe src="type_table.php" frameborder="0" marginwidth="0" marginheight="0" ></iframe>
 <hr>
@@ -133,17 +140,17 @@
 <h3 class="head_3">strpos(string, word)</h3>
 <p class="summary">string 에서 word 라는 다른 문자열이 처음 등장하는 인덱스를 반환한다. 찾지 못했을 경우는 false 를 반환한다.</p>
 <ul>
-	<li><b class="pcolor3">var_dump</b>(<b class="pcolor3">strpos</b>(<span class="pcolor5">$word</span>, 'hope'))<br>
+	<li><b class="pcolor3">var_dump</b>(<b class="pcolor3">strpos</b>(<span class="pcolor5">$word</span>, 'hope'));<br>
 	출력값 : <?php var_dump(strpos($word, 'hope')); ?><br>
 	</li>
-	<li><b class="pcolor3">var_dump</b>(<b class="pcolor3">strpos</b>(<span class="pcolor5">$word</span>, 'word'))<br>
+	<li><b class="pcolor3">var_dump</b>(<b class="pcolor3">strpos</b>(<span class="pcolor5">$word</span>, 'word'));<br>
 	출력값 : <?php var_dump(strpos($word, 'word')); ?><br>
 	</li>
 </ul>
 <h3 class="head_3">explode(delimiter, string)</h3>
 <p class="summary">delimiter 문자열이 나오는 모든 위치를 기준으로 string 을 분할하여 어레이로 반환한다.</p>
 <ul>
-	<li><b class="pcolor3">var_dump</b>(<b class="pcolor3">explode</b>(<span class="pcolor5">$token, $days</span>))<br>
+	<li><b class="pcolor3">var_dump</b>(<b class="pcolor3">explode</b>(<span class="pcolor5">$token, $days</span>));<br>
 	출력값 : <?php var_dump(explode($token, $days)); ?><br>
 	</li>
 </ul>
@@ -167,7 +174,7 @@
 	<dd>$array1 = array('월요일', '화요일', '수요일', '목요일', '금요일', '토요일');</dd>
 	<dd>$array2 = array('1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월');</dd>
 </dl>
-<h3 class="head_3">array_push(elem) </h3>
+<h3 class="head_3">array_push(array, elem) </h3>
 <p class="summary">어레이의 맨 뒤에 원소를 추가한다. $array[] = elem; 으로도 같은 일을 할 수 있다.</p>
 <ul>
 	<li><b class="pcolor3">array_push</b>(<span class="pcolor5">$array1</span>, '일요일');<span class="pcolor7"> // '일요일'을 어레이에 추가</span><br>
@@ -194,7 +201,7 @@
 <h3 class="head_3">array_keys(array)</h3>
 <p class="summary">키만으로 새로운 어레이를 만들어서 반환.</p>
 <ul>
-	<li><b class="pcolor3">var_dump</b>(<b class="pcolor3">array_key</b>(<span class="pcolor5">$array1</span>)); <br>
+	<li><b class="pcolor3">var_dump</b>(<b class="pcolor3">array_keys</b>(<span class="pcolor5">$array1</span>)); <br>
 	출력값 : <?php var_dump(array_keys($array1)); ?><br>
 	</li>
 </ul>
@@ -318,7 +325,6 @@
 </dl>
 <ul>
 	<li>
-		<input type="button" value="출력값 확인하기"><br>
 		출력값 : <?php echo "<xmp>$replace5</xmp>"; ?>
 	</li>
 </ul>
