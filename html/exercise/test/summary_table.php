@@ -13,8 +13,8 @@
 <div class="content">
 <div class="tab">
 	<ul>
-		<li><a href="summary_table.php">요약정리 파일 테스트</a></li>
-		<li><a href="test_in_class.php">강의 추가 테스트</a></li>
+		<li><a href="summary_table.php">요약정리 파일 테스트 - 개인</a></li>
+		<li><a href="test_in_class.php">어레이 php, javascript 테스트</a></li>
 	</ul>
 </div>
 <h2>타입 전환 테이블</h2>

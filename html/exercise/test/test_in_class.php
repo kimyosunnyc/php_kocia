@@ -13,8 +13,8 @@
 <div class="content">
 <div class="tab">
 	<ul>
-		<li><a href="summary_table.php">요약정리 파일 테스트</a></li>
-		<li><a href="test_in_class.php">강의 추가 테스트</a></li>
+		<li><a href="summary_table.php">요약정리 파일 테스트 - 개인</a></li>
+		<li><a href="test_in_class.php">어레이 php, javascript 테스트</a></li>
 	</ul>
 </div>
 <h2>어레이 테스트 - 복사가 되는 것인가? 이름만 가져다 사용하는 것인가?</h2>
@@ -68,6 +68,7 @@
 
 <hr>
 <h2>1부터 20까지의 어레이를 만들어라.</h2>
+<p class="summary">php 에서의 <span class="pcolor2">array_push</span>, javascript 에서의 arr.<span class="pcolor2">push</span></p>
 <h3 class="h_green">php </h3>
 <?php
 $array = array ();
@@ -172,6 +173,7 @@ for ($i = 1; $i <= $length; $i += 1) {
 
 <hr>
 <h2>array_filter($arr, 함수); 를 사용하여 기존의 어레이에서 짝수를 찾아 새로운 어레이를 만들어라.</h2>
+<p class="summary">php에서의  <span class="pcolor2">array_filter</span>, javascript에서의 arr. <span class="pcolor2">filter</span></p>
 <h3 class="h_green">php</h3>
 <dl class="php_box_2">
 	<dt><b>php</b></dt>
