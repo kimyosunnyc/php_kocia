@@ -1,0 +1,48 @@
+/* 폰트설정 */
+@import url("http://fonts.googleapis.com/earlyaccess/nanumgothic.css" );
+@import url("http://cdn.jsdelivr.net/font-nanum/1.0/nanumbarungothic/nanumbarungothic.css"); 
+@import url("http://fonts.googleapis.com/earlyaccess/nanummyeongjo.css");
+
+body{font-family:"nanumbarungothic","nanumbarungothic",'Nanum Gothic','나눔고딕', 'NanumGothic', 'Century Gothic',sans-serif !important;line-height:1.5em;}
+
+.wrap{width:100%;padding-top:30px;margin-bottom:100px;}
+.content{margin:0 auto;width:65%;}
+ul li {line-height:1.5em;list-style:circle;}
+input[type=button] {padding:10px 20px;}
+dl dd{font-family:"consolas";font-size:1.04em;}
+
+
+h1{text-align:center;margin-bottom:50px;line-height:1.6em;}
+h2 {font-size:21px;margin-top:50px;line-height:1.5em;}
+.cont_box {width:100%;}
+.cont_box dd {margin:0;padding:0;border-bottom:1px dotted #dddddd;}
+.h_green{background:url(../images/bullet_green_16.png) left center no-repeat;padding-left:20px;margin:10px 0;color:#00B240;}
+.description {font-size:16px;}
+span.answer {color:#2C00B2;}
+
+.php_box_1 {border:1px solid #ddd;border-radius:5px;padding:20px;background:#F7F7F7;}
+.php_box_1 dt{padding-bottom:10px;}
+
+.answer_box_1 {border:1px dotted #2C00B2;border-radius:5px;padding:20px;}
+.answer_box_1 dt{padding-bottom:10px;color:#2C00B2;}
+
+
+.tab{width:100%;margin:0 auto;clear:both;}
+.tab ul{display:block;width:100%;margin:0;padding:0;}
+.tab ul li{float:left;display:inline;margin:0 0 50px 0;width:49.83%;background:#efefef;text-align:center;border:1px solid #ddd;}
+.tab ul li a{display:block;padding:20px 0;text-decoration:none;color:#000;}
+
+
+/* Mobile Device */
+@media (max-width:765px) {
+body{line-height:1.6em;}
+.content{margin:0 auto;width:100%;}
+.tab ul li{display:block;margin:0 0 50px 0;width:100%;margin:2px 0;}
+.tab ul li.tab_btn {margin-bottom:50px;}
+}
+
+@media (min-width:768px) and (max-width:1200px) {
+.content{margin:0 auto;width:100%;}
+.tab ul li{display:block;margin:0 0 50px 0;width:100%;margin:2px 0;}
+.tab ul li.tab_btn {margin-bottom:50px;}
+}

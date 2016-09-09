@@ -13,9 +13,9 @@ input[type=button] {padding:10px 20px;}
 dl dd{font-family:"consolas";font-size:1.04em;}
 
 
-.tab{width:100%;margin:0 auto;}
+.tab{width:100%;margin:0 auto;clear:both;}
 .tab ul{display:block;width:100%;margin:0;padding:0;}
-.tab ul li{float:left;display:inline;margin:0 0 50px 0;width:49%;background:#efefef;text-align:center;border:1px solid #ddd;}
+.tab ul li{float:left;display:inline;margin:0 0 50px 0;width:49.83%;background:#efefef;text-align:center;border:1px solid #ddd;}
 .tab ul li a{display:block;padding:20px 0;text-decoration:none;color:#000;}
 
 /* Mobile Device */
@@ -24,17 +24,22 @@ body{line-height:1.6em;}
 .content{margin:0 auto;width:100%;}
 iframe{width:100%; height:650px !important;overflow-x:scroll !important;}
 .cont_box {width:100%;}
-.inner_box {display:block;width:100% !important;border:1px solid #ddd;border-radius:7px;padding:15px 0;margin:10px 0 !important;}
+.inner_box {display:block;width:100% !important;border:1px solid #ddd;border-radius:7px;padding:15px;margin:10px 0 !important;}
+
+.tab ul li{display:block;margin:0 0 50px 0;width:100%;margin:2px 0;}
+.tab ul li.tab_btn {margin-bottom:50px;}
 }
 
 @media (min-width:768px) and (max-width:1200px) {
 .content{margin:0 auto;width:100%;}
 iframe{width:100%; height:550px !important;overflow-x:scroll !important;}
-
+.tab ul li{display:block;margin:0 0 50px 0;width:100%;margin:2px 0;}
+.tab ul li.tab_btn {margin-bottom:50px;}
 }
 
 .cont_box {width:100%;}
 .inner_box {display:inline;float:left;width:31%;border:1px solid #ddd;border-radius:7px;padding:15px 0;margin:20px 1% 50px 1%;}
+.inner_box h3{padding-left:20px;margin:20px 0;}
 
 .php_box_1 {border:1px solid #ddd;border-radius:5px;padding:20px;}
 .php_box_1 dt{padding-bottom:10px;}

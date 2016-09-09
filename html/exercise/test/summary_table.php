@@ -8,16 +8,17 @@
 
 <body>
 <div class="wrap">
-<div style="float:right;"><a href="../../index.php">홈으로</a></div>
+
 <h1>PHP, HTML, MySQL, JavaScript 요약 정리 테스트</h1>
 <div class="content">
+<div style="float:right;"><a href="../../index.php">홈으로</a></div>
 <div class="tab">
 	<ul>
 		<li><a href="summary_table.php">요약정리 파일 테스트 - 개인</a></li>
-		<li><a href="test_in_class.php">어레이 php, javascript 테스트</a></li>
+		<li class="tab_btn"><a href="test_in_class.php">어레이 php, javascript 테스트</a></li>
 	</ul>
 </div>
-<h2>타입 전환 테이블</h2>
+<h2 class="top_title">타입 전환 테이블</h2>
 <iframe src="type_table.php" frameborder="0" marginwidth="0" marginheight="0" ></iframe>
 <hr>
 <h2>내림, 올림, 반올림</h2>
