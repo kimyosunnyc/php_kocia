@@ -124,8 +124,6 @@
 	<dd>function is_suffix($a, $b)</dd>
 </dl>
 <?php
-	$a = 'ap';
-	$b = 'apple';
 	function is_sullix ($a, $b) {
 
 		if (strlen($a) <= strlen($b)) {
@@ -136,7 +134,7 @@
 		return ;
 	}
 ?>
-출력값 : <span class="answer"><?php var_dump (is_sullix ($a, $b)); ?></span>
+출력값 : <span class="answer"><?php var_dump (is_sullix ('ap', 'apple')); ?></span>
 
 <h2>7. 아래의 코드를 실행했을 때, 브라우저에 출력되는 결과를 최대한 정확히 맞춰보세요.</h2>
 <span class="description">참고로, 사전 순서로 정렬하면 숫자가 알파벳보다 먼저 나타나고, 대문자는 모든 소문자보다 먼저 나타납니다.<br>
@@ -244,13 +242,18 @@
 	<dd>function average($numbers)</dd>
 </dl>
 <?php
-
-	function average ($numbers) {
+	function average($numbers) {
+		$result = 0;
+		$length = count($numbers);
 		
-		
+		for($i = 0; $i < $length; $i += 1){
+			$result += $numbers[$i];
+			$result %= $length;  // 여기 수정
+        }
+        return $result;
 	}
-	
 ?>
+<?php echo average(array(1, 2, 3)); ?>
 <dl class="answer_box_1">
 	<dt><b>문제 풀이</b></dt>
 	<dd>&nbsp;</dd>
