@@ -3,7 +3,7 @@
 @import url("http://cdn.jsdelivr.net/font-nanum/1.0/nanumbarungothic/nanumbarungothic.css"); 
 @import url("http://fonts.googleapis.com/earlyaccess/nanummyeongjo.css");
 
-body{font-family:"nanumbarungothic","nanumbarungothic",'Nanum Gothic','나눔고딕', 'NanumGothic', 'Century Gothic',sans-serif !important;line-height:1.5em;}
+body{font-family:"nanumbarungothic","nanumbarungothic",'Nanum Gothic','나눔고딕', 'NanumGothic', 'Century Gothic',sans-serif !important;line-height:1.6em;}
 
 .wrap{width:100%;padding-top:30px;margin-bottom:100px;}
 .content{margin:0 auto;width:65%;}
