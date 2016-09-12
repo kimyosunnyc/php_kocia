@@ -29,9 +29,10 @@ span.answer {color:#2C00B2;}
 
 .tab{width:100%;margin:0 auto;clear:both;}
 .tab ul{display:block;width:100%;margin:0;padding:0;}
-.tab ul li{float:left;display:inline;margin:0 0 50px 0;width:49.83%;background:#efefef;text-align:center;border:1px solid #ddd;}
+.tab ul li{float:left;display:inline;margin:0 0 50px 0;width:33%;background:#efefef;text-align:center;border:1px solid #ddd;}
 .tab ul li a{display:block;padding:20px 0;text-decoration:none;color:#000;}
 
+hr {border-top:1px dotted black;border-bottom:none;}
 
 /* Mobile Device */
 @media (max-width:765px) {

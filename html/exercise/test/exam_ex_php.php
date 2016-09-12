@@ -14,7 +14,8 @@
 <div class="tab">
 	<ul>
 		<li><a href="exam_ex_php.php">PHP</a></li>
-		<li class="tab_btn"><a href="exam_ex_javascript.php">Javascript</a></li>
+		<li><a href="exam_ex_javascript.php">Javascript</a></li>
+		<li class="tab_btn"><a href="exam_ex_mysql.php">MySQL</a></li>
 	</ul>
 </div>
 
@@ -115,26 +116,37 @@
 
 <h2>6. 아래의 함수 is_suffix를, 문자열 A와 B를 받아서 A가 B의 접미어이면 true를, 그렇지 않으면 false를 반환하도록 작성해 보세요. </h2>
 <p>
-<span class="description">※ 어떤 문자열 A가 다른 문자열 B의 맨 뒷부분에 쏙 들어있을 때, "A는 B의 접미어(suffix)"라고 합니다.<br>
-&nbsp;&nbsp;&nbsp;&nbsp;예를 들어서, 문자열 "od"는 "food"의 접미어 입니다. 물론 "food"도 "food"의 접미어 입니다.<br>
+<span class="description">※ 어떤 문자열 A가 다른 문자열 B의 <span style="text-decoration:underline;">맨 뒷부분</span>에 쏙 들어있을 때, "A는 B의 접미어(suffix)"라고 합니다.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;예를 들어서, 문자열 "od"는 "food"의 접미어 입니다. 물론 "food"도 "food"의 접미어 입니다. 하지만 "fo", "foo", "oo" 등은 접미어가 아닙니다.<br>
 ※ php의 대소문자 규칙상 변수 이름은 소문자로 합니다. strlen() 함수와 strpos() 함수를 이용하세요.</span>
 </p>
 <dl class="php_box_1">
 	<dt><b>조건</b></dt>
 	<dd>function is_suffix($a, $b)</dd>
 </dl>
-<?php
-	function is_sullix ($a, $b) {
 
-		if (strlen($a) <= strlen($b)) {
-			echo true;
-		} else {
-			echo false;
-		}
-		return ;
+<?php
+	function is_suffix ($a, $b) {
+		$alen = strlen($a);
+		$c = substr ($b, -$alen);
+		
+		return $c === $a;
 	}
 ?>
-출력값 : <span class="answer"><?php var_dump (is_sullix ('ap', 'apple')); ?></span>
+<dl class="answer_box_1">
+	<dt>문제풀이</dt>
+	<dd>function is_suffix ($a, $b) {</dd>
+	<dd>$alen = strlen($a);</dd>
+	<dd>$c = substr ($b, -$alen);</dd>
+	<dd>&nbsp;</dd>
+	<dd>return $c === $a;</dd>
+	<dd>&nbsp;</dd>
+	<dd>출력값 ($a = 'c', $b = 'abc' 일 때) : <span class="answer"><?php var_dump (is_suffix ('c', 'abc')); ?></span></dd>
+	<dd>출력값 ($a = 'b', $b = 'abc' 일 때) : <span class="answer"><?php var_dump (is_suffix ('b', 'abc')); ?></span></dd>
+	<dd>출력값 ($a = 'bc', $b = 'abc' 일 때) : <span class="answer"><?php var_dump (is_suffix ('bc', 'abc')); ?></span></dd>
+</dl>
+
+
 
 <h2>7. 아래의 코드를 실행했을 때, 브라우저에 출력되는 결과를 최대한 정확히 맞춰보세요.</h2>
 <span class="description">참고로, 사전 순서로 정렬하면 숫자가 알파벳보다 먼저 나타나고, 대문자는 모든 소문자보다 먼저 나타납니다.<br>
@@ -248,17 +260,27 @@
 		
 		for($i = 0; $i < $length; $i += 1){
 			$result += $numbers[$i];
-			$result %= $length;  // 여기 수정
-        }
-        return $result;
+		}
+		$result /= $length;
+		return $result;
 	}
 ?>
-<?php echo average(array(1, 2, 3)); ?>
+
 <dl class="answer_box_1">
 	<dt><b>문제 풀이</b></dt>
+	<dd>function average($numbers) {</dd>
+	<dd>$result = 0;</dd>
+	<dd>$length = count($numbers);</dd>
+	<dd>for($i = 0; $i < $length; $i += 1){</dd>
+	<dd>$result += $numbers[$i];</dd>
+	<dd>}</dd>
+	<dd>$result /= $length;</dd>
+	<dd>return $result;</dd>
+	<dd>}</dd>
 	<dd>&nbsp;</dd>
+	<dd>echo average(array(1, 2, 3));</dd>
 	<dd>&nbsp;</dd>
-	<dd>&nbsp;</dd>
+	<dd>출력값 : <span class="answer"><?php echo average(array(1, 2, 3)); ?></span></dd>
 </dl>
 
 
