@@ -9,7 +9,7 @@ body{font-family:"nanumbarungothic","nanumbarungothic",'Nanum Gothic','나눔고
 .content{margin:0 auto;width:65%;}
 ul li {line-height:1.5em;list-style:circle;}
 input[type=button] {padding:10px 20px;}
-dl dd{font-family:"consolas";font-size:1.04em;}
+dl dd{font-family:"consolas";font-size:1.04em;line-height:1.6em;}
 
 
 h1{text-align:center;margin-bottom:50px;line-height:1.6em;}
