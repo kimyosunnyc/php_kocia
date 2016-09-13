@@ -15,7 +15,8 @@
 	<ul>
 		<li><a href="exam_ex_php.php">PHP</a></li>
 		<li><a href="exam_ex_javascript.php">Javascript</a></li>
-		<li class="tab_btn"><a href="exam_ex_mysql.php">MySQL</a></li>
+		<li><a href="exam_ex_mysql.php">MySQL</a></li>
+		<li class="tab_btn"><a href="exam_ex_html.php">HTML</a></li>
 	</ul>
 </div>
 

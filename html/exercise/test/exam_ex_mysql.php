@@ -15,7 +15,8 @@
 	<ul>
 		<li><a href="exam_ex_php.php">PHP</a></li>
 		<li><a href="exam_ex_javascript.php">Javascript</a></li>
-		<li class="tab_btn"><a href="exam_ex_mysql.php">MySQL</a></li>
+		<li><a href="exam_ex_mysql.php">MySQL</a></li>
+		<li class="tab_btn"><a href="exam_ex_html.php">HTML</a></li>
 	</ul>
 </div>
 
@@ -85,7 +86,8 @@
 <h2>7. 위의 student 테이블을 잘 사용하고 있던 학교에서, 학생들의 정신건강을 위해서 심리치료사를 배치하기로 하였습니다. 모든 학생마다 1명씩 심리치료사가 배정되도록 규칙을 정했습니다. 그래서 therapist 테이블을 만들고, 이미 존재하던 student 테이블과 외래 키 (foreign key)로 연관관계를 규정하게 되었습니다. 이 때 어떤 테이블에 외래 키를 추가해야 하는지를 쓰세요. 또한, 외래 키를 추가하는 과정에서 SQL 오류가 일어났다면, 어떤 이유에서인지 설명하세요.</h2>
 <dl class="answer_box_1">
 	<dt><b>문제 풀이</b></dt>
-	<dd><span class="answer">therapist 테이블, 연관관계를 규정하려는 student 테이블의 PK에 해당하는 column(ex. student_id) 이 therapist 테이블에는 존재하지 않으므로</span></dd>
+	<dd><span class="answer">테이블 : therapist</span></dd>
+	<dd><span class="answer">이유 : 연관관계를 규정하려는 student 테이블의 PK에 해당하는 column(ex. student_id) 이 therapist 테이블에는 존재하지 않으므로</span></dd>
 </dl>
 
 

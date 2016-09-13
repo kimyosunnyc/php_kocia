@@ -13,7 +13,7 @@ dl dd{font-family:"consolas";font-size:1.04em;line-height:1.6em;}
 
 
 h1{text-align:center;margin-bottom:50px;line-height:1.6em;}
-h2 {font-size:21px;margin-top:50px;line-height:1.5em;}
+h2 {clear:both;font-size:21px;margin-top:50px;line-height:1.5em;}
 .cont_box {width:100%;}
 .cont_box dd {margin:0;padding:0;border-bottom:1px dotted #dddddd;}
 .h_green{background:url(../images/bullet_green_16.png) left center no-repeat;padding-left:20px;margin:10px 0;color:#00B240;}
@@ -29,7 +29,7 @@ span.answer {color:#2C00B2;}
 
 .tab{width:100%;margin:0 auto;clear:both;}
 .tab ul{display:block;width:100%;margin:0;padding:0;}
-.tab ul li{float:left;display:inline;margin:0 0 50px 0;width:33%;background:#efefef;text-align:center;border:1px solid #ddd;}
+.tab ul li{float:left;display:inline;margin:0 0 50px 0;width:24.83%;background:#efefef;text-align:center;border:1px solid #ddd;}
 .tab ul li a{display:block;padding:20px 0;text-decoration:none;color:#000;}
 
 hr {border-top:1px dotted black;border-bottom:none;}
