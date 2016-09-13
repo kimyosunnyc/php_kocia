@@ -11,6 +11,7 @@
 <div class="content">
 <div style="float:right;"><a href="../../index.php">홈으로</a></div>
 
+
 <div class="tab">
 	<ul>
 		<li><a href="exam_ex_php.php">PHP</a></li>
@@ -30,7 +31,7 @@
 </dl>
 <dl class="answer_box_1">
 	<dt><b>문제 풀이</b></dt>
-	<dd>정답 : <span class="answer">스키마 > 테이블 > 컬럼 > 인스턴스</span></dd>
+	<dd>정답 : <span class="answer">인스턴스 > 스키마 > 테이블 > 컬럼</span></dd>
 </dl>
 
 
@@ -58,35 +59,35 @@
 </dl>
 <dl class="answer_box_1">
 	<dt><b>문제 풀이</b></dt>
-	<dd><span class="answer">SELECT student_id, full_name FROM student WHERE age >= 12 ORDER BY ASC</span></dd>
+	<dd><span class="answer">SELECT full_name FROM student WHERE age >= 12 ORDER BY full_name ASC</span></dd>
 </dl>
 
 
 <h2>4. 성이 김씨인 학생들의 평균 나이를 출력하는 Select 문을 작성해 보세요.</h2>
 <dl class="answer_box_1">
 	<dt><b>문제 풀이</b></dt>
-	<dd><span class="answer">SELECT sum(age)/count(student_id) FROM student WHERE full_name LIKE '김%'</span></dd>
+	<dd><span class="answer">SELECT AVG(age) FROM student WHERE full_name LIKE '김%'</span></dd>
 </dl>
 
 
 <h2>5. 학생들을 나이별로 묶어서, 나이별로 몇 명의 학생들이 있는지 출력하는 Select 문을 작성해 보세요.</h2>
 <dl class="answer_box_1">
 	<dt><b>문제 풀이</b></dt>
-	<dd><span class="answer">SELECT count(student_id) FROM student GROUP BY age</span></dd>
+	<dd><span class="answer">SELECT age, count(student_id) FROM student GROUP BY age</span></dd>
 </dl>
 
 
 <h2>6. 신장이 제일 큰 10명의 학생들의 이름과 신장을 출력하는 Select 문을 작성해 보세요.</h2>
 <dl class="answer_box_1">
 	<dt><b>문제 풀이</b></dt>
-	<dd><span class="answer">SELECT full_name, height FROM student WHERE </span></dd>
+	<dd><span class="answer">SELECT full_name, height FROM student ORDER BY height DESC LIMIT 10</span></dd>
 </dl>
 
 
 <h2>7. 위의 student 테이블을 잘 사용하고 있던 학교에서, 학생들의 정신건강을 위해서 심리치료사를 배치하기로 하였습니다. 모든 학생마다 1명씩 심리치료사가 배정되도록 규칙을 정했습니다. 그래서 therapist 테이블을 만들고, 이미 존재하던 student 테이블과 외래 키 (foreign key)로 연관관계를 규정하게 되었습니다. 이 때 어떤 테이블에 외래 키를 추가해야 하는지를 쓰세요. 또한, 외래 키를 추가하는 과정에서 SQL 오류가 일어났다면, 어떤 이유에서인지 설명하세요.</h2>
 <dl class="answer_box_1">
 	<dt><b>문제 풀이</b></dt>
-	<dd><span class="answer">테이블 : therapist</span></dd>
+	<dd><span class="answer">테이블 : student</span></dd>
 	<dd><span class="answer">이유 : 연관관계를 규정하려는 student 테이블의 PK에 해당하는 column(ex. student_id) 이 therapist 테이블에는 존재하지 않으므로</span></dd>
 </dl>
 
@@ -94,14 +95,27 @@
 <h2>8. 위의 therapist 테이블에도 full_name (varchar(20) 컬럼이 있다고 합니다. Select와 Join 쿼리를 사용해서 모든 학생의 명단을 출력하되, 학생이름-나이-담당 심리치료사 이름 순서로 출력하세요.</h2>
 <dl class="answer_box_1">
 	<dt><b>문제 풀이</b></dt>
-	<dd><span class="answer">SELECT  </span></dd>
+	<dd><span class="answer">SELECT student.full_name, student.age,  therapist.full_name FROM student JOIN therapist ON student.therapist_id = therapist.id</span></dd>
 </dl>
 
 
-<h2>9. 심리치료사 1명이 급사하여, 해당 심리치료사에 배정되어 있던 학생들은 어쩔 수 없이 담당 심리치료사를 null 값으로 변경하였습니다. 이 때, 위의 5번 쿼리문을 그대로 사용하면 담당 심리치료사가 죽은 학생들은 결과에 포함될까요? 만약 포함되지 않는다면, 포함시키기 위해서는 어떻게 해야 할까요? 포함시키고 나면 죽은 담당 심리치료사 이름 칸에는 어떤 값이 출력되나요?</h2>
+<h2>9. 심리치료사 1명이 급사하여, 해당 심리치료사에 배정되어 있던 학생들은 어쩔 수 없이 담당 심리치료사를 null 값으로 변경하였습니다. 이 때, 위의 8번 쿼리문을 그대로 사용하면 담당 심리치료사가 죽은 학생들은 결과에 포함될까요? 만약 포함되지 않는다면, 포함시키기 위해서는 어떻게 해야 할까요? 포함시키고 나면 죽은 담당 심리치료사 이름 칸에는 어떤 값이 출력되나요?</h2>
 <dl class="answer_box_1">
 	<dt><b>문제 풀이</b></dt>
-	<dd><span class="answer">&nbsp;</span></dd>
+	<dd><span class="answer">포함되지 않는다.</span></dd>
+	<dd><span class="answer">SELECT student.full_name, student.age, therapist.full_name FROM student LEFT JOIN therapist ON student.therapist_id = therapist.id</span></dd>
+	<dd>&nbsp;</dd>
+	<dd>위와 같이 작성하면 therapist 테이블에서 학생이름과 함께, 삭제된 심리치료사는 null로 표시된다.</dd>
+	<dd>(해당 심리치료사의  id와 name 을 포함하는 row가 DB에서 삭제 된 상황)</dd>
+	<dd>급사한 심리치료사의 이름 칸에 '급사'라고 적어주기 위해 작성한 식은 아래와 같다.</dd>
+	<dd>이 때, 칼럼명이 CASE 부터 END까지 모두 노출되는 현상이 발생하는데 이를 END 다음의 AS 를 사용하여 name이라는 칼럼명을 지정해준다.</dd>
+	<dd>&nbsp;</dd>
+	<dd>SELECT student.full_name, student.age, </dd>
+	<dd>&nbsp;&nbsp;&nbsp;CASE WHEN therapist.full_name IS NULL</dd>
+	<dd>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;THEN '급사'</dd>
+	<dd>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ELSE therapist.full_name </dd>
+	<dd>&nbsp;&nbsp;&nbsp;END AS name</dd>
+	<dd>FROM student LEFT JOIN therapist ON student.therapist_id = therapist.id</dd>
 </dl>
 
 
