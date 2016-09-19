@@ -100,14 +100,13 @@ function get_star_string ($len) {
 <?php
 function fill_short2 ($string1, $string2) {
 	$len = mb_strlen($string1) - mb_strlen($string2);
-	if ($len > 0) {
-		$longer = $string1;	
-		$shorter = $string2;
-
-	} else {
-		$longer = $string2;	
-		$shorter = $string1;
-	}
+	
+	$arr = array($string1, $string2);
+	$arr = sort_str ($arr);
+	
+	$shorter = $arr [0];
+	$longer = $arr [1];
+	
 	$get_str = mb_substr($longer, -abs($len));
 	return array($longer, $shorter.$get_str);
 }
@@ -135,7 +134,7 @@ function compare_string_by_length ($string1, $string2) {
 	
 	if ($len > 0) {
 		return -1;
-	} else if ($len = 0) {
+	} else if ($len === 0) {
 		return 0;
 	} else {
 		return 1;
@@ -150,20 +149,6 @@ function sort_str2 ($arr) {
 }
 ?>
 <?php var_dump (sort_str2 (array('기차','차돌박이','이발소','원','우리동네마트','다함께차차차','돌'))); ?>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
