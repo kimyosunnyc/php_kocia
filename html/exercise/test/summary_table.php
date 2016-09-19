@@ -114,9 +114,7 @@
 	<dd>$days = '월요일과 화요일과 수요일과 목요일과 금요일과 토요일과 일요일';</dd>
 </dl>
 <h3 class="head_3">substr(string, start[, length])</h3>
-<p class="summary">string 을 start 인덱스부터 끝까지 잘라서 새로 만들어진 
-문자열을 반환한다. length 가 제시되었을 경우는 최대 그 
-길이까지만 자른다. </p>
+<p class="summary">string 을 start 인덱스부터 끝까지 잘라서 새로 만들어진 문자열을 반환한다. length 가 제시되었을 경우는 최대 그 길이까지만 자른다. </p>
 <ul>
 	<li><b class="pcolor3">var_dump</b>(<b class="pcolor3">substr</b>(<span class="pcolor5">$word_en</span>, 0, <span class="pcolor5">$limit</span>));<br>
 	출력값 : <?php var_dump(substr($word_en, 0, $limit)); ?><br>
@@ -126,7 +124,7 @@
 	</li>
 </ul>
 <h3 class="head_3">strlen(string) / mb_strlen(string)</h3>
-<p class="summary">string 의 길이를 반환한다. mb_ 가 붙으면 multi byte, 즉 한글 등의 문자를 포함한 string 도 올바르게 처리할 수 있다</p>
+<p class="summary">string 의 길이를 반환한다. mb_ 가 붙으면 multi byte, 즉 한글 등의 문자를 포함한 string 도 올바르게 처리할 수 있다.</p>
 <ul>
 	<li><b class="pcolor3">var_dump</b>(<b class="pcolor3">strlen</b>(<span class="pcolor5">$word_en</span>));<br>
 	출력값 : <?php var_dump(strlen($word_en)); ?><br>
@@ -186,7 +184,6 @@
 	</li>
 </ul>
 <h3 class="head_3">count(array)</h3>
-<p class="summary">어레이의 맨 뒤에 원소를 추가한다. $array[] = elem; 으로도 같은 일을 할 수 있다.</p>
 <ul>
 	<li><b class="pcolor3">var_dump</b>(<b class="pcolor3">count</b>(<span class="pcolor5">$array1</span>));<br>
 	출력값 : <?php var_dump(count($array1)); ?><br>

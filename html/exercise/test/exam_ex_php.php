@@ -118,8 +118,11 @@
 <h2>6. 아래의 함수 is_suffix를, 문자열 A와 B를 받아서 A가 B의 접미어이면 true를, 그렇지 않으면 false를 반환하도록 작성해 보세요. </h2>
 <p>
 <span class="description">※ 어떤 문자열 A가 다른 문자열 B의 <span style="text-decoration:underline;">맨 뒷부분</span>에 쏙 들어있을 때, "A는 B의 접미어(suffix)"라고 합니다.<br>
-&nbsp;&nbsp;&nbsp;&nbsp;예를 들어서, 문자열 "od"는 "food"의 접미어 입니다. 물론 "food"도 "food"의 접미어 입니다. 하지만 "fo", "foo", "oo" 등은 접미어가 아닙니다.<br>
-※ php의 대소문자 규칙상 변수 이름은 소문자로 합니다. strlen() 함수와 strpos() 함수를 이용하세요.</span>
+&nbsp;&nbsp;&nbsp;&nbsp;예를 들어서, 문자열 "od"는 "food"의 접미어 입니다. 물론 "food"도 "food"의 접미어 입니다. 하지만 "fo", "foo", "oo" 등은 접미어가 아닙니다.<br><br>
+※ php의 대소문자 규칙상 변수 이름은 소문자로 합니다. strlen() 함수와 strpos() 함수를 이용하세요.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;strlen : 문자열의 길이를 구할 때 사용 ($str = 'abcdef'; echo strlen($str); // 6)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;substr : 문자열을 나눌 때 사용 ($rest = substr("abcdef", -3, 1); // returns "d")
+</span>
 </p>
 <dl class="php_box_1">
 	<dt><b>조건</b></dt>

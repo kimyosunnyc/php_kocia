@@ -19,6 +19,8 @@ h2 {clear:both;font-size:21px;margin-top:50px;line-height:1.5em;}
 .h_green{background:url(../images/bullet_green_16.png) left center no-repeat;padding-left:20px;margin:10px 0;color:#00B240;}
 .description {font-size:16px;}
 span.answer {color:#2C00B2;}
+.grey{color:#7F7F7F;}
+.pink{color:#FF0084;}
 
 .php_box_1 {border:1px solid #ddd;border-radius:5px;padding:20px;background:#F7F7F7;}
 .php_box_1 dt{padding-bottom:10px;}
