@@ -1,15 +1,21 @@
 <!doctype html>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <head>
-<title>연습문제</title>
+<title>PHP 문자열, 어레이 연습문제</title>
 <link rel="stylesheet" href="css/style_2.css" />
 </head>
 
 <body>
 <div class="wrap">
-<h1>연습문제</h1>
+<h1>PHP 문자열, 어레이 연습문제</h1>
 <div class="content">
 <div style="float:right;"><a href="../../index.php">홈으로</a></div>
+<div class="tab2">
+	<ul>
+		<li><a href="exam_ex1.php">PHP 문자열, 어레이 연습</a></li>
+		<li class="tab_btn"><a href="exam_ex2.php">정규표현식 연습</a></li>
+	</ul>
+</div>
 
 <h2>1. 긴 문자열의 길이만큼 짧은 문자열 뒤에 * 를 붙여라.</h2>
 <?php

@@ -34,7 +34,13 @@ span.answer {color:#2C00B2;}
 .tab ul li{float:left;display:inline;margin:0 0 50px 0;width:24.83%;background:#efefef;text-align:center;border:1px solid #ddd;}
 .tab ul li a{display:block;padding:20px 0;text-decoration:none;color:#000;}
 
-hr {border-top:1px dotted black;border-bottom:none;}
+.tab2{width:100%;margin:0 auto;clear:both;}
+.tab2 ul{display:block;width:100%;margin:0;padding:0;}
+.tab2 ul li{float:left;display:inline;margin:0 0 50px 0;width:49.83%;background:#efefef;text-align:center;border:1px solid #ddd;}
+.tab2 ul li a{display:block;padding:20px 0;text-decoration:none;color:#000;}
+
+
+hr {border-top:1px dotted black;border-bottom:none;margin-top:50px;}
 
 /* Mobile Device */
 @media (max-width:765px) {
@@ -42,10 +48,16 @@ body{line-height:1.6em;}
 .content{margin:0 auto;width:100%;}
 .tab ul li{display:block;margin:0 0 50px 0;width:100%;margin:2px 0;}
 .tab ul li.tab_btn {margin-bottom:50px;}
+
+.tab2 ul li{display:block;margin:0 0 50px 0;width:100%;margin:2px 0;}
+.tab2 ul li.tab_btn {margin-bottom:50px;}
 }
 
 @media (min-width:768px) and (max-width:1200px) {
 .content{margin:0 auto;width:100%;}
 .tab ul li{display:block;margin:0 0 50px 0;width:100%;margin:2px 0;}
 .tab ul li.tab_btn {margin-bottom:50px;}
+
+.tab2 ul li{display:block;margin:0 0 50px 0;width:100%;margin:2px 0;}
+.tab2 ul li.tab_btn {margin-bottom:50px;}
 }
