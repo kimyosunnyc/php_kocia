@@ -133,7 +133,7 @@
 	출력값 : <?php var_dump(strlen($word_ko)); ?><br>
 	</li>
 	<li><b class="pcolor3">echo mb_strlen</b>(<span class="pcolor5">$word</span>)<br>
-	출력값 : <?php //var_dump(mb_strlen($word)); ?><br>
+	출력값 : <?php var_dump(mb_strlen($word)); ?><br>
 	</li>
 </ul>
 <h3 class="head_3">strpos(string, word)</h3>
