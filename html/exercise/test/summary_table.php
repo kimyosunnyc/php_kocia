@@ -310,6 +310,8 @@
 	$replace3 = preg_replace('/\s*>/', '>', $replace2);
 	$replace4 = preg_replace('/\s*=\s*/', '=', $replace3);
 	$replace5 = preg_replace('/\s*\"/', '"', $replace4);
+	
+	$result = htmlspecialchars($replace5);
 ?>
 <dl class="php_box_2">
 	<dt><b>php 할당문</b></dt>
@@ -323,7 +325,7 @@
 </dl>
 <ul>
 	<li>
-		출력값 : <?php echo "<xmp>$replace5</xmp>"; ?>
+		출력값 : <?php echo $result; ?>
 	</li>
 </ul>
 <h3 class="head_3">preg_split(pattern, string)</h3>
